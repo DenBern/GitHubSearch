@@ -9,21 +9,14 @@
     "build-prod": "webpack --mode=production",
     "clean": "rd /s /q dist"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/aAleksandrOrlov/webpack-5-config.git"
-  },
+
   "keywords": [
     "JavaScript",
     "Webpack",
     "Node"
   ],
-  "author": "aleksandr <aleksandr.orlov.dev@gmail.com>",
+  
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/aAleksandrOrlov/webpack-5-config/issues"
-  },
-  "homepage": "https://github.com/aAleksandrOrlov/webpack-5-config#readme",
   "devDependencies": {
     "@babel/core": "^7.16.5",
     "@babel/preset-env": "^7.16.5",

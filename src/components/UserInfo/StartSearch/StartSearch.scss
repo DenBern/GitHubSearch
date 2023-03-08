@@ -1,0 +1,20 @@
+.start-search {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 46.92px;
+
+  width: 210px;
+  margin: 245px auto 0 auto;
+
+  .icon {
+    width: 64.17px;
+    height: 64.17px;
+  }
+
+  p {
+    font-size: 22px;
+    text-align: center;
+    line-height: 140%;
+  }
+}
