@@ -11,3 +11,17 @@ body {
   color: #808080;
   margin: 0;
 }
+
+header {
+  display: flex;
+  flex-direction: row;
+  gap: 22.02px;
+  padding: 16px 0 16px 41px;
+  width: 100%;
+  background-color: #0064EB;
+
+  .logo {
+    width: 41.02px;
+    height: 40px;
+  }
+}

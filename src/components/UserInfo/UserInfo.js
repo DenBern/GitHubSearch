@@ -12,12 +12,13 @@ class UserInfo extends Component {
       search: '',
     }
   }
+  
   render () {
+    const startSearch = this.state.search.length === 0 ? <StartSearch /> : null;
+    
     return (
       <main>
-        {/* <StartSearch />
-        <UserNotFound /> */}
-        <Description />
+        {startSearch}
       </main>
     )
   }

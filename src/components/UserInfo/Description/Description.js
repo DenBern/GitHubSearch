@@ -1,6 +1,6 @@
 import { Component } from "react";
 import React from "react";
-import Users from "../../../services/Users/Users";
+import GitHubUsers from "../../../services/Users/GitHubUsers";
 
 import './Description.scss'
 
@@ -11,34 +11,13 @@ class Description extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      search: '',
-      avatar: '',
-      name: '',
-      url: '',
-      login: '',
-      followers: '',
-      following: '',
+      data: 'info',
     }
   }
-    user = new Users ();
-
-    updateUser = () => {
-      this.user
-        .getUserInfo("denbern")
-        .then(res => 
-          this.setState({
-            avatar: res.avatar_url,
-            name: res.name,
-            url: res.html_url,
-            login: res.login,
-            followers: res.followers,
-            following: res.following,
-          })
-        )
-    }
 
   render () {
-    const {avatar, name, url, followers, following, login} = this.state;
+    const {avatar, name, url, followers, following, login} = this.props.userData;
+    
     return (
       <section className="user">
         <div
@@ -50,7 +29,7 @@ class Description extends Component {
             }
           }>
         </div>
-        <div className="name_link">
+        <div className="name-link">
           <p className="name">{name}</p>
           <a 
             href={url}
@@ -85,12 +64,6 @@ class Description extends Component {
             <span>{following} following</span>
           </div>
         </div>
-        <button onClick={() => this.updateUser()}
-          style={{
-            width: "100px",
-            height: "50px",
-          }}>
-          </button>
       </section>
     )
   }

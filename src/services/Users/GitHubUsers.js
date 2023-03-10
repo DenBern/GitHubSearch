@@ -1,6 +1,7 @@
-class Users {
-  _url = "https://api.github.com/users/";
-  getAllUserInfo = async (url) => {
+const USERS_URL = "https://api.github.com/users/";
+
+class GitHubUsers {
+  getData = async (url) => {
     let res = await fetch(url);
     if(!res.ok) {
       throw new Error(`Could not fetch ${url}, status: ${res.status}`)
@@ -10,9 +11,9 @@ class Users {
   }
 
   getUserInfo = (name) => {
-    return  this.getAllUserInfo(`${this._url}${name}`);
+    return  this.getData(`${USERS_URL}${name}`);
   }
 }
 
-export default Users;
+export default GitHubUsers;
 
