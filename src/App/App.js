@@ -33,7 +33,7 @@ class  App extends Component {
               }
             }>
           </div>
-          <Search updateState={this.updateState}/>
+          <Search updateState={this.updateState} />
         </header>
         <main>
           <UserInfo userInfo={this.state.userInfo} />

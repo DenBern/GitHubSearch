@@ -23,5 +23,12 @@ header {
   .logo {
     width: 41.02px;
     height: 40px;
+    transform: scale(1);
+    transition: 0.5s;
+  }
+  .logo:hover {
+    cursor: pointer;
+    transform: scale(0.9);
+    transition: 0.5s;
   }
 }

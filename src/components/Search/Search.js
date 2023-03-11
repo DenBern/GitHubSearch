@@ -21,11 +21,17 @@ class Search extends Component {
     this.setState({search: search});
   }
 
+  onLoading = () => {
+    this.setState({
+      loading: true,
+    })
+  }
+
   onError = () => {
     this.setState({
-        error: true,
+      error: true,
     })
-}
+  }
 
   updateUser = () => {
     this.user
@@ -46,6 +52,9 @@ class Search extends Component {
   handleKeyDownPress = (e) => {
     if (e.key === 'Enter') {
       this.updateUser();
+        this.setState({
+          loading: false,
+        })
     }
   }
 

@@ -10,7 +10,6 @@ import followingIcon from '../../../assets/png/following_icon.png';
 class Description extends Component {
   constructor(props) {
     super(props);
-    this.state = {}
   }
 
   render () {
