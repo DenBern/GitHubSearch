@@ -4,7 +4,7 @@ import userNotFoundIcon from '../../../assets/png/not_found_user_icon.png';
 
 import './UserNotFound.scss';
 
-export const UserNotFound = () => {
+export const UserNotFound = ({userName}) => {
   return (
     <div className="user-not-found">
       <div 
@@ -16,7 +16,7 @@ export const UserNotFound = () => {
           }
         } />
       <p className="info-text">
-        User not found
+        User <b style={{color: "red"}}>{userName}</b> not found
       </p>
     </div>
   )

@@ -24,7 +24,8 @@ class  App extends Component {
     return (
       <>
         <header>
-          <div 
+          <div
+            onClick={() => window.location.reload(false)}
             className="logo"
             style={
               {

@@ -21,6 +21,12 @@ class Search extends Component {
     this.setState({search: search});
   }
 
+  onError = () => {
+    this.setState({
+        error: true,
+    })
+}
+
   updateUser = () => {
     this.user
       .getUserInfo(`${this.state.search}`)
@@ -34,6 +40,7 @@ class Search extends Component {
             following: res.following,
         })
       )
+      .catch(this.onError)
   }
 
   handleKeyDownPress = (e) => {
@@ -45,7 +52,7 @@ class Search extends Component {
   render () {
     return (
       <div className="search">
-        <div 
+        <div
           className="search-icon"
           style={
             {
