@@ -11,7 +11,6 @@ class Search extends Component {
     super(props);
     this.state = {
       search: '',
-      userData: {},
     }
   }
 
@@ -27,14 +26,12 @@ class Search extends Component {
       .getUserInfo(`${this.state.search}`)
       .then(res =>
         this.setState({
-          userData: {
             avatar: res.avatar_url,
             name: res.name,
             url: res.html_url,
             login: res.login,
             followers: res.followers,
             following: res.following,
-          }
         })
       )
   }
@@ -63,7 +60,7 @@ class Search extends Component {
           value={this.state.search}
           onChange={this.onUpdateSearch}
           onKeyDown={this.handleKeyDownPress}
-          onKeyUp={() => this.props.updateState(this.state.userData)}>
+          onKeyUp={() => this.props.updateState(this.state)}>
         </input>
       </div>
       )

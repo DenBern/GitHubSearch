@@ -8,17 +8,16 @@ import Description from "./Description/Description";
 class UserInfo extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      search: '',
-    }
   }
-  
+
   render () {
-    const startSearch = this.state.search.length === 0 ? <StartSearch /> : null;
-    
+    const startSearch = Object.keys(this.props.userInfo).length <= 1 ? <StartSearch /> : null;
+    const description = Object.keys(this.props.userInfo).length > 1 ? <Description userInfo={this.props.userInfo} /> : null;
+
     return (
       <main>
         {startSearch}
+        {description}
       </main>
     )
   }

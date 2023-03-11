@@ -11,13 +11,11 @@ class Description extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: 'info',
     }
   }
 
   render () {
-    const {avatar, name, url, followers, following, login} = this.props.userData;
-    
+    const {avatar, name, login, url, followers, following } = this.props.userInfo;
     return (
       <section className="user">
         <div

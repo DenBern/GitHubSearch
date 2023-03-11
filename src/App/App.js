@@ -10,14 +10,13 @@ class  App extends Component {
   constructor (props) {
     super(props);
     this.state = {
-      search: '',
-      userData: {},
-    }
+      userInfo: {},
+    };
   }
 
   updateState = (value) => {
     this.setState({
-      userData: value,
+      userInfo: value,
     })
   }
 
@@ -36,7 +35,7 @@ class  App extends Component {
           <Search updateState={this.updateState}/>
         </header>
         <main>
-          <UserInfo userData={this.state.userData}/>
+          <UserInfo userInfo={this.state.userInfo} />
         </main>
       </>
     )
