@@ -11,7 +11,14 @@ class Repositories extends Component {
 
   render () {
     const {userRepositories} = this.props;
-    const element = userRepositories.map(repo => {
+    const basicRepos = [];
+    const maxRepos = 3;
+
+    for (let i = 0; maxRepos >= basicRepos.length; i++) {
+      basicRepos.push(userRepositories[i])
+    }
+
+    const element = basicRepos.map(repo => {
       return <Repository key={repo.id} name={repo.name} description={repo.description} html_url={repo.html_url} />
     });
 
@@ -23,7 +30,7 @@ class Repositories extends Component {
       <div className="repositories">
         <h1>Repositories ({userRepositories.length})</h1>
         <div className="repositories-list">
-          {element}
+        {element}
         </div>
       </div>
     )
