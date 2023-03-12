@@ -49,7 +49,7 @@ class Search extends Component {
       .getRepositories(`${this.state.search}`)
       .then(repos => 
         this.setState({
-            repositories: repos,
+          repositories: repos,
         })
       )
       .catch(this.onError)

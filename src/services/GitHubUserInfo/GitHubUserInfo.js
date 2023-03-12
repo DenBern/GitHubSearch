@@ -1,5 +1,5 @@
 const URL = "https://api.github.com/users/";
-
+const baseOffset = 3;
 class GitHubUserInfo {
   getData = async (url) => {
     let res = await fetch(url);

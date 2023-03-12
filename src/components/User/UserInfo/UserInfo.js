@@ -1,6 +1,6 @@
 import React from "react";
 import Description from './Description/Description';
-import {Repositories} from './Repositories/Repositories';
+import Repositories from './Repositories/Repositories';
 
 import './UserInfo.scss';
 

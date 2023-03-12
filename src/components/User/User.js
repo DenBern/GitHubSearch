@@ -14,10 +14,9 @@ class User extends Component {
     const {error, loading} = this.props.userInfo;
     
     const startSearch = Object.keys(this.props.userInfo).length <= 1 && !error ? <StartSearch /> : null;
-    const userNotFound = error ? <NotFound prop='user'/> : null;
+    const userNotFound = error ? <NotFound prop="user"/> : null;
     const userInfo = Object.keys(this.props.userInfo).length > 1 && !error ? <UserInfo userInfo={this.props.userInfo} /> : null;
     const spinner = loading && !error ? <Spinner /> : null;
-    
     return (
       <main>
         {startSearch}
