@@ -1,11 +1,10 @@
 import { Component } from "react";
 import React from "react";
-import GitHubUsers from "../../../services/Users/GitHubUsers";
 
-import './Description.scss'
+import './Description.scss';
 
-import followersIcon from '../../../assets/png/followers_icon.png';
-import followingIcon from '../../../assets/png/following_icon.png';
+import followersIcon from '../../../../assets/png/followers_icon.png';
+import followingIcon from '../../../../assets/png/following_icon.png';
 
 class Description extends Component {
   constructor(props) {
@@ -15,7 +14,7 @@ class Description extends Component {
   render () {
     const {avatar, name, login, url, followers, following } = this.props.userInfo;
     return (
-      <section className="user">
+      <div className="description">
         <div
           className="photo"
           style={
@@ -26,7 +25,7 @@ class Description extends Component {
           }>
         </div>
         <div className="name-link">
-          <p className="name">{name}</p>
+          <p className="name">{!name ? 'Name is empty' : name}</p>
           <a 
             href={url}
             target="_blank"
@@ -60,7 +59,7 @@ class Description extends Component {
             <span>{following} following</span>
           </div>
         </div>
-      </section>
+      </div>
     )
   }
 }

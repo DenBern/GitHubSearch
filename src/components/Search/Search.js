@@ -1,6 +1,6 @@
 import { Component } from "react";
 import React from "react";
-import GitHubUsers from "../../services/Users/GitHubUsers";
+import GitHubUserInfo from "../../services/GitHubUserInfo/GitHubUserInfo";
 
 import './Search.scss';
 
@@ -14,12 +14,7 @@ class Search extends Component {
     }
   }
 
-  user = new GitHubUsers ();
-
-  onUpdateSearch = (e) => {
-    const search = e.target.value;
-    this.setState({search: search});
-  }
+  userInfo = new GitHubUserInfo ();
 
   onLoading = () => {
     this.setState({
@@ -34,7 +29,7 @@ class Search extends Component {
   }
 
   updateUser = () => {
-    this.user
+    this.userInfo
       .getUserInfo(`${this.state.search}`)
       .then(res =>
         this.setState({
@@ -49,9 +44,21 @@ class Search extends Component {
       .catch(this.onError)
   }
 
+  updateRepositories = () => {
+    this.userInfo
+      .getRepositories(`${this.state.search}`)
+      .then(repos => 
+        this.setState({
+            repositories: repos,
+        })
+      )
+      .catch(this.onError)
+  }
+
   handleKeyDownPress = (e) => {
     if (e.key === 'Enter') {
       this.updateUser();
+      this.updateRepositories();
         this.setState({
           loading: false,
         })
@@ -74,7 +81,7 @@ class Search extends Component {
           type="text"
           placeholder="Enter GitHub username"
           value={this.state.search}
-          onChange={this.onUpdateSearch}
+          onChange={(e) => {this.setState({search: e.target.value})}}
           onKeyDown={this.handleKeyDownPress}
           onKeyUp={() => this.props.updateState(this.state)}>
         </input>

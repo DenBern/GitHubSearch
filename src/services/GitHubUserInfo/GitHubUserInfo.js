@@ -1,6 +1,6 @@
-const USERS_URL = "https://api.github.com/users/";
+const URL = "https://api.github.com/users/";
 
-class GitHubUsers {
+class GitHubUserInfo {
   getData = async (url) => {
     let res = await fetch(url);
     if(!res.ok) {
@@ -11,9 +11,13 @@ class GitHubUsers {
   }
 
   getUserInfo = (name) => {
-    return  this.getData(`${USERS_URL}${name}`);
+    return  this.getData(`${URL}${name}`);
+  }
+
+  getRepositories = (name) => {
+    return this.getData(`${URL}${name}/repos`);
   }
 }
 
-export default GitHubUsers;
+export default GitHubUserInfo;
 

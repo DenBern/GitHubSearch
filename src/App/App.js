@@ -1,6 +1,6 @@
 import { Component } from "react";
 import React from "react";
-import UserInfo from "../components/UserInfo/UserInfo";
+import User from "../components/User/User";
 import Search from "../components/Search/Search";
 
 import './App.scss';
@@ -35,9 +35,7 @@ class  App extends Component {
           </div>
           <Search updateState={this.updateState} />
         </header>
-        <main>
-          <UserInfo userInfo={this.state.userInfo} />
-        </main>
+          <User userInfo={this.state.userInfo} />
       </>
     )
   }

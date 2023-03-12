@@ -1,0 +1,32 @@
+h2 {
+  font-weight: 600;
+}
+
+.repositories {
+  color: #000;
+  display: flex;
+  flex-direction: column;
+  gap: 29px;
+
+  a {
+    text-decoration: none;
+    color: #0064EB;
+  }
+
+  .repositories-list {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+}
+
+.repository {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  width: 877px;
+
+  padding: 24px 32px 24px 32px;
+  background-color: #fff;
+}
