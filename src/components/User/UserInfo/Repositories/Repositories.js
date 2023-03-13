@@ -14,26 +14,26 @@ class Repositories extends Component {
     const basicRepos = [];
     const maxRepos = 3;
 
-    for (let i = 0; maxRepos >= basicRepos.length; i++) {
-      basicRepos.push(userRepositories[i])
-    }
-
-    const element = basicRepos.map(repo => {
-      return <Repository key={repo.id} name={repo.name} description={repo.description} html_url={repo.html_url} />
-    });
-
     if (userRepositories.length === 0) {
       return <NotFound prop='repos'/>
-    }
+    } else {
+      for (let i = 0; maxRepos >= basicRepos.length; i++) {
+        basicRepos.push(userRepositories[i])
+      }
 
-    return (
-      <div className="repositories">
-        <h1>Repositories ({userRepositories.length})</h1>
-        <div className="repositories-list">
-        {element}
+      const element = basicRepos.map(repo => {
+        return <Repository key={repo.id} name={repo.name} description={repo.description} html_url={repo.html_url} />
+      });
+  
+      return (
+        <div className="repositories">
+          <h1>Repositories ({userRepositories.length})</h1>
+          <div className="repositories-list">
+          {element}
+          </div>
         </div>
-      </div>
-    )
+      )
+    }
   }
 }
 

@@ -18,7 +18,7 @@ class Search extends Component {
 
   onLoading = () => {
     this.setState({
-      loading: true,
+      loading: false,
     })
   }
 
@@ -32,14 +32,16 @@ class Search extends Component {
     this.userInfo
       .getUserInfo(`${this.state.search}`)
       .then(res =>
-        this.setState({
+        this.setState(
+          {
             avatar: res.avatar_url,
             name: res.name,
             url: res.html_url,
             login: res.login,
             followers: res.followers,
             following: res.following,
-        })
+          }
+        )
       )
       .catch(this.onError)
   }
@@ -59,9 +61,6 @@ class Search extends Component {
     if (e.key === 'Enter') {
       this.updateUser();
       this.updateRepositories();
-        this.setState({
-          loading: false,
-        })
     }
   }
 

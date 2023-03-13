@@ -7,15 +7,15 @@
     "start": "cross-env SERVE=true webpack serve",
     "build": "webpack",
     "build-prod": "webpack --mode=production",
-    "clean": "rd /s /q dist"
+    "clean": "rd /s /q dist",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
-
   "keywords": [
     "JavaScript",
     "Webpack",
     "Node"
   ],
-  
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.16.5",
@@ -25,6 +25,7 @@
     "babel-loader": "^8.2.3",
     "cross-env": "^7.0.3",
     "css-loader": "^6.5.1",
+    "gh-pages": "^5.0.0",
     "html-loader": "^3.0.1",
     "html-webpack-plugin": "^5.5.0",
     "mini-css-extract-plugin": "^2.4.5",
@@ -41,5 +42,7 @@
   "dependencies": {
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
-  }
+  },
+  "homepage": "https://denbern.github.io/ss2022/"
+
 }
