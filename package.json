@@ -7,9 +7,7 @@
     "start": "cross-env SERVE=true webpack serve",
     "build": "webpack",
     "build-prod": "webpack --mode=production",
-    "clean": "rd /s /q dist",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "clean": "rd /s /q dist"
   },
   "keywords": [
     "JavaScript",
@@ -42,7 +40,5 @@
   "dependencies": {
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
-  },
-  "homepage": "https://denbern.github.io/ss2022/"
-
+  }
 }
