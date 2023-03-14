@@ -18,7 +18,7 @@ class Search extends Component {
 
   onLoading = () => {
     this.setState({
-      loading: false,
+      loading: true,
     })
   }
 
@@ -29,6 +29,7 @@ class Search extends Component {
   }
 
   updateUser = () => {
+    this.onLoading();
     this.userInfo
       .getUserInfo(`${this.state.search}`)
       .then(res =>
@@ -62,7 +63,7 @@ class Search extends Component {
       this.updateUser();
       this.updateRepositories();
     }
-  }
+  } 
 
   render () {
     return (

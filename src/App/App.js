@@ -11,6 +11,11 @@ class  App extends Component {
     super(props);
     this.state = {
       userInfo: {},
+      pages: {
+        startSearch: 'start',
+        notFoundUser: 'notfound',
+        user: 'userInfo',
+      },
     };
   }
 

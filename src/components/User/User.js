@@ -5,18 +5,22 @@ import { StartSearch } from "./StartSearch/StartSearch";
 import { NotFound } from "./NotFound/NotFound";
 import { UserInfo } from "./UserInfo/UserInfo";
 
+import { emptyData } from "../constants/constants";
+
 class User extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      loading: false,
+    }
   }
 
   render () {
     const {error, loading} = this.props.userInfo;
-
     const startSearch = Object.keys(this.props.userInfo).length <= 1 && !error ? <StartSearch /> : null;
-    const userNotFound = error ? <NotFound prop="user"/> : null;
-    const userInfo = Object.keys(this.props.userInfo).length > 1 && !error ? <UserInfo userInfo={this.props.userInfo} /> : null;
-    const spinner = loading && !error ? <Spinner /> : null;
+    const userNotFound = error ? <NotFound prop={emptyData.userNotFound}/> : null;
+    const userInfo = Object.keys(this.props.userInfo).length > 1 ? <UserInfo userInfo={this.props.userInfo} /> : null;
+    const spinner = loading ? <Spinner /> : null;
 
     return (
       <main>
