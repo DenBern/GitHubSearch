@@ -31,7 +31,7 @@ class Repositories extends Component {
         <div className="repositories">
           <h1>Repositories ({userRepositories.length})</h1>
           <div className="repositories-list">
-          {element}
+            {element}
           </div>
         </div>
       )

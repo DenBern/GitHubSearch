@@ -44,7 +44,7 @@ class Description extends Component {
                 }
               }
             />
-            <span>{followers} followers</span>
+            <span>{followers}k followers</span>
           </div>
           <div className="following">
             <div 

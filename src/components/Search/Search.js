@@ -16,11 +16,11 @@ class Search extends Component {
 
   userInfo = new GitHubUserInfo ();
 
-  onLoading = () => {
-    this.setState({
-      loading: true,
-    })
-  }
+  // onLoading = () => {
+  //   this.setState({
+  //     loading: true,
+  //   })
+  // }
 
   onError = () => {
     this.setState({
@@ -29,7 +29,7 @@ class Search extends Component {
   }
 
   updateUser = () => {
-    this.onLoading();
+    // this.onLoading();
     this.userInfo
       .getUserInfo(`${this.state.search}`)
       .then(res =>
@@ -39,8 +39,8 @@ class Search extends Component {
             name: res.name,
             url: res.html_url,
             login: res.login,
-            followers: res.followers,
-            following: res.following,
+            followers: res.followers > 1000 ? (res.followers / 1000).toFixed(1) : res.followers,
+            following: res.following > 1000 ? (res.following / 1000).toFixed(1) : res.following,
           }
         )
       )
