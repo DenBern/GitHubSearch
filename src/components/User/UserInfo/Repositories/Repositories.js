@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { NotFound } from "../../NotFound/NotFound";
 import { Repository } from "./Repository/Repository";
 
-import { emptyData } from "../../../constants/constants"; 
+import { constants } from "../../../constants/constants"; 
 
 import './Repositories.scss';
 
@@ -17,7 +17,7 @@ class Repositories extends Component {
     const maxRepos = 3;
 
     if (userRepositories.length === 0) {
-      return <NotFound prop={emptyData.emptyRepos}/>
+      return <NotFound prop={constants.emptyRepos}/>
     } else {
       for (let i = 0; maxRepos >= basicRepos.length; i++) {
         basicRepos.push(userRepositories[i])

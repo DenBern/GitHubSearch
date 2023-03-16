@@ -4,11 +4,13 @@ import Repositories from './Repositories/Repositories';
 
 import './UserInfo.scss';
 
-export const UserInfo = ({userInfo}) => {
+export const UserInfo = (allInfo) => {
+  const {userDesc, userRepos} = allInfo.userInfo;
+  console.log(allInfo)
   return (
     <section className="user-info">
-      <Description userInfo={userInfo}/>
-      <Repositories userRepositories={userInfo.repositories} />
+      <Description userDesc={userDesc}/>
+      {/* <Repositories userRepositories={userInfo.repositories} /> */}
     </section>
   )
 };

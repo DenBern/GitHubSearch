@@ -6,13 +6,8 @@ import './Description.scss';
 import followersIcon from '../../../../assets/png/followers_icon.png';
 import followingIcon from '../../../../assets/png/following_icon.png';
 
-class Description extends Component {
-  constructor(props) {
-    super(props);
-  }
-
-  render () {
-    const {avatar, name, login, url, followers, following } = this.props.userInfo;
+const Description = ({userDesc}) => {
+    const {avatar, name, login, url, followers, following } = userDesc;
     return (
       <div className="description">
         <div
@@ -62,6 +57,6 @@ class Description extends Component {
       </div>
     )
   }
-}
+
 
 export default Description;
