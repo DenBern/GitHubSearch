@@ -62,9 +62,6 @@ class  App extends Component {
         })
       )
       .catch(this.onError)
-      this.setState({
-        search: '',
-      })
   }
 
   componentDidMount () {
@@ -75,13 +72,13 @@ class  App extends Component {
     const {search} = this.state;
     if (search !== prevProps.search) {
       this.updateUser();
+      this.updateRepositories();
       console.log('component did Update')
     }
   }
 
   render () {
-    console.log(this.state)
-    const {search, userDesc} = this.state;
+    const {search, userDesc, repositories} = this.state;
     const start = !search ?  <StartSearch /> : null;
     const userInfo = userDesc ? <User allInfo={this.state}/> : null;
     return (
@@ -89,8 +86,10 @@ class  App extends Component {
         <header>
           <Search updateState={this.updateState} />
         </header>
+        <main>
           {start}
           {userInfo}
+        </main>
       </>
     )
   }

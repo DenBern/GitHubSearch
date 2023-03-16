@@ -6,21 +6,16 @@ import { constants } from "../../../constants/constants";
 
 import './Repositories.scss';
 
-class Repositories extends Component {
-  constructor(props) {
-    super(props);
-  }
-
-  render () {
-    const {userRepositories} = this.props;
+export const Repositories = ({userRepos}) => {
     const basicRepos = [];
     const maxRepos = 3;
+    console.log(userRepos)
 
-    if (userRepositories.length === 0) {
+    if (userRepos.length === 0) {
       return <NotFound prop={constants.emptyRepos}/>
     } else {
       for (let i = 0; maxRepos >= basicRepos.length; i++) {
-        basicRepos.push(userRepositories[i])
+        basicRepos.push(userRepos[i])
       }
 
       const element = basicRepos.map(repo => {
@@ -29,7 +24,7 @@ class Repositories extends Component {
   
       return (
         <div className="repositories">
-          <h1>Repositories ({userRepositories.length})</h1>
+          <h1>Repositories ({userRepos.length})</h1>
           <div className="repositories-list">
             {element}
           </div>
@@ -37,6 +32,3 @@ class Repositories extends Component {
       )
     }
   }
-}
-
-export default Repositories;
