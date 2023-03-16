@@ -17,16 +17,17 @@ class  App extends Component {
     this.state = {
       search: '',
       error: null,
+      loading: false,
     };
   }
 
   userInfo = new GitHubUserInfo ();
 
-  onLoading = () => {
-    this.setState({
-      loading: true,
-    })
-  }
+  // onLoading = () => {
+  //   this.setState({
+  //     loading: true,
+  //   })
+  // }
 
   updateState = (value) => {
     this.setState({
@@ -53,6 +54,7 @@ class  App extends Component {
               followers: res.followers,
               following: res.following,
             },
+            loading: false,
           }),
       )
       .catch(this.onError)
@@ -70,27 +72,23 @@ class  App extends Component {
   }
 
   componentDidMount () {
-    this.setState({
-      loading: false,
-    })
-    console.log('component did Mount')
   }
 
   componentDidUpdate (newProps, prevProps) {
-    const {search} = this.state;
+    const {search, loading} = this.state;
     if (search !== prevProps.search) {
       this.updateUser();
-      // this.updateRepositories();
-      console.log('component did Update')
+      this.updateRepositories();
+      this.setState({
+        loading: true,
+        error: false,
+      })
     }
   }
 
   render () {
-    const {search, error, userDesc, loading} = this.state;
-    const start = !search ?  <StartSearch /> : null;
-    const loadingInfo = loading ? <Spinner /> : null;
-    const userNotFound = error ? <NotFound prop={constants.userNotFound} /> : null;
-    const userInfo = userDesc && !loading ? <User allInfo={this.state}/> : null;
+    const {search, error, userDesc, loading, repositories} = this.state;
+    const userInfo = userDesc && repositories && !loading;
 
     return (
       <>
@@ -98,10 +96,10 @@ class  App extends Component {
           <Search updateState={this.updateState} />
         </header>
         <main>
-          {start}
-          {loadingInfo}
-          {userNotFound}
-          {userInfo}
+          {!search && <StartSearch />}
+          {loading && !error && <Spinner />}
+          {error && <NotFound prop={constants.userNotFound} />}
+          {userInfo && <User allInfo={this.state}/> }
         </main>
       </>
     )
