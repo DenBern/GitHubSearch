@@ -3,8 +3,8 @@ import React from "react";
 
 import './Description.scss';
 
-import followersIcon from '../../../../assets/png/followers_icon.png';
-import followingIcon from '../../../../assets/png/following_icon.png';
+import followersIcon from "../../../assets/png/followers_icon.png";
+import followingIcon from '../../../assets/png/following_icon.png';
 
 export const Description = ({userDesc}) => {
     const {avatar, name, login, url, followers, following } = userDesc;

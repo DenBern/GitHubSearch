@@ -1,19 +1,20 @@
 import React from "react";
-import { Component } from "react";
 import { Spinner } from "../Spinner/Spinner";
-import { NotFound } from "./NotFound/NotFound";
-import { UserInfo } from "./UserInfo/UserInfo";
+import { Description } from "./Description/Description";
+import { Repositories } from "./Repositories/Repositories";
 
 import { constants } from "../constants/constants";
 
+import "./User.scss";
+
 export const User = ({allInfo}) => {
-    const {error, loading} = allInfo;
-    const userInfo = !error && !loading ? <UserInfo userInfo={allInfo} /> : null;
+  const {userDesc, repositories} = allInfo;
     // const spinner = loading ? <Spinner /> : null;
 
     return (
-      <>
-        {userInfo}
-      </>
+      <section className="user-info">
+        <Description userDesc={userDesc}/>
+        {/* <Repositories userRepos={repositories}/> */}
+      </section>
     )
 }

@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import { NotFound } from "../../NotFound/NotFound";
+import { NotFound } from "../NotFound/NotFound";
 import { Repository } from "./Repository/Repository";
 
-import { constants } from "../../../constants/constants"; 
+import { constants } from "../../constants/constants"; 
 
 import './Repositories.scss';
 
