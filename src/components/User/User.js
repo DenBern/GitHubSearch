@@ -8,13 +8,11 @@ import { constants } from "../constants/constants";
 
 export const User = ({allInfo}) => {
     const {error, loading} = allInfo;
-    const userNotFound = error ? <NotFound prop={constants.userNotFound}/> : null;
     const userInfo = !error && !loading ? <UserInfo userInfo={allInfo} /> : null;
     // const spinner = loading ? <Spinner /> : null;
 
     return (
       <>
-        {userNotFound}
         {userInfo}
       </>
     )

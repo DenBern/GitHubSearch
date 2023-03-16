@@ -6,7 +6,7 @@ import './Description.scss';
 import followersIcon from '../../../../assets/png/followers_icon.png';
 import followingIcon from '../../../../assets/png/following_icon.png';
 
-const Description = ({userDesc}) => {
+export const Description = ({userDesc}) => {
     const {avatar, name, login, url, followers, following } = userDesc;
     return (
       <div className="description">
@@ -39,7 +39,7 @@ const Description = ({userDesc}) => {
                 }
               }
             />
-            <span>{followers}k followers</span>
+            <span>{`${followers > 1000 ? (followers / 1000).toFixed(1) + 'k' : followers} followers`}</span>
           </div>
           <div className="following">
             <div 
@@ -51,12 +51,9 @@ const Description = ({userDesc}) => {
                 }
               }
             />
-            <span>{following} following</span>
+            <span>{`${following > 1000 ? (following / 1000).toFixed(1) + 'k' : following}`} following</span>
           </div>
         </div>
       </div>
     )
-  }
-
-
-export default Description;
+}

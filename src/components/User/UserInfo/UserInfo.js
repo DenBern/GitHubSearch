@@ -1,5 +1,5 @@
 import React from "react";
-import Description from './Description/Description';
+import { Description } from './Description/Description';
 import { Repositories } from './Repositories/Repositories';
 
 import './UserInfo.scss';
@@ -9,7 +9,7 @@ export const UserInfo = (allInfo) => {
   return (
     <section className="user-info">
       <Description userDesc={userDesc}/>
-      <Repositories userRepos={repositories} />
+      {/* s<Repositories userRepos={repositories} /> */}
     </section>
   )
 };

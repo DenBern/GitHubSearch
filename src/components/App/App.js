@@ -3,23 +3,30 @@ import React from "react";
 import { User } from "../User/User";
 import Search from "../Search/Search";
 import GitHubUserInfo from "../../services/GitHubUserInfo/GitHubUserInfo";
+import { constants } from "../constants/constants";
 
 import './App.scss';
 
 import { NotFound } from "../User/NotFound/NotFound";
 import { StartSearch } from "../User/StartSearch/StartSearch";
+import { Spinner } from "../Spinner/Spinner";
 
 class  App extends Component {
   constructor (props) {
     super(props);
     this.state = {
       search: '',
-      loading: false,
-      error: false,
+      error: null,
     };
   }
 
   userInfo = new GitHubUserInfo ();
+
+  onLoading = () => {
+    this.setState({
+      loading: true,
+    })
+  }
 
   updateState = (value) => {
     this.setState({
@@ -36,19 +43,17 @@ class  App extends Component {
   updateUser = () => {
     this.userInfo
       .getUserInfo(`${this.state.search}`)
-      .then(res =>
-        this.setState(
-          {
+      .then(res => 
+          this.setState({
             userDesc: {
               avatar: res.avatar_url,
               name: res.name,
               url: res.html_url,
               login: res.login,
-              followers: res.followers > 1000 ? (res.followers / 1000).toFixed(1) : res.followers,
-              following: res.following > 1000 ? (res.following / 1000).toFixed(1) : res.following,
+              followers: res.followers,
+              following: res.following,
             },
-          }
-        )
+          }),
       )
       .catch(this.onError)
   }
@@ -65,6 +70,9 @@ class  App extends Component {
   }
 
   componentDidMount () {
+    this.setState({
+      loading: false,
+    })
     console.log('component did Mount')
   }
 
@@ -72,15 +80,18 @@ class  App extends Component {
     const {search} = this.state;
     if (search !== prevProps.search) {
       this.updateUser();
-      this.updateRepositories();
+      // this.updateRepositories();
       console.log('component did Update')
     }
   }
 
   render () {
-    const {search, userDesc, repositories} = this.state;
+    const {search, error, userDesc, loading} = this.state;
     const start = !search ?  <StartSearch /> : null;
-    const userInfo = userDesc ? <User allInfo={this.state}/> : null;
+    const loadingInfo = loading ? <Spinner /> : null;
+    const userNotFound = error ? <NotFound prop={constants.userNotFound} /> : null;
+    const userInfo = userDesc && !loading ? <User allInfo={this.state}/> : null;
+
     return (
       <>
         <header>
@@ -88,6 +99,8 @@ class  App extends Component {
         </header>
         <main>
           {start}
+          {loadingInfo}
+          {userNotFound}
           {userInfo}
         </main>
       </>
