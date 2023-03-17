@@ -1,15 +1,14 @@
-import { Component } from "react";
-import React from "react";
+import React, { Component } from "react";
 import { User } from "../User/User";
 import Search from "../Search/Search";
+import { NotFound } from "../User/NotFound/NotFound";
+import { StartSearch } from "../User/StartSearch/StartSearch";
+import { Spinner } from "../Spinner/Spinner";
+
 import GitHubUserInfo from "../../services/GitHubUserInfo/GitHubUserInfo";
 import { constants } from "../constants/constants";
 
 import './App.scss';
-
-import { NotFound } from "../User/NotFound/NotFound";
-import { StartSearch } from "../User/StartSearch/StartSearch";
-import { Spinner } from "../Spinner/Spinner";
 
 class  App extends Component {
   constructor (props) {
@@ -21,17 +20,11 @@ class  App extends Component {
     };
   }
 
-  userInfo = new GitHubUserInfo ();
+  userInfo = new GitHubUserInfo();
 
-  // onLoading = () => {
-  //   this.setState({
-  //     loading: true,
-  //   })
-  // }
-
-  updateState = (value) => {
+  onLoading = () => {
     this.setState({
-      search: value,
+      loading: !this.state.loading,
     })
   }
 
@@ -41,10 +34,16 @@ class  App extends Component {
     })
   }
 
+  updateState = (value) => {
+    this.setState({
+      search: value,
+    })
+  }
+
   updateUser = () => {
     this.userInfo
       .getUserInfo(`${this.state.search}`)
-      .then(res => 
+      .then(res =>
           this.setState({
             userDesc: {
               avatar: res.avatar_url,
@@ -54,9 +53,9 @@ class  App extends Component {
               followers: res.followers,
               following: res.following,
             },
-            loading: false,
-          }),
-      )
+          })
+        )
+      .then(this.onLoading)
       .catch(this.onError)
   }
 
@@ -71,18 +70,12 @@ class  App extends Component {
       .catch(this.onError)
   }
 
-  componentDidMount () {
-  }
-
   componentDidUpdate (newProps, prevProps) {
-    const {search, loading} = this.state;
+    const {search} = this.state;
     if (search !== prevProps.search) {
       this.updateUser();
       this.updateRepositories();
-      this.setState({
-        loading: true,
-        error: false,
-      })
+      this.onLoading();
     }
   }
 
