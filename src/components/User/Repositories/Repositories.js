@@ -8,7 +8,7 @@ import { constants } from "../../constants/constants";
 import './Repositories.scss';
 
 export const Repositories = ({userRepos}) => {
-  const pageCount = Math.ceil(userRepos.length / constants.maxRepos);
+  const pageCount = Math.ceil(userRepos.length / (constants.maxRepos + 1));
 
   if (!userRepos.length) {
     return <NotFound prop={constants.emptyRepos} />
