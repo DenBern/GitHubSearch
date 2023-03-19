@@ -15,7 +15,7 @@ class  App extends Component {
     super(props);
     this.state = {
       search: '',
-      error: null,
+      error: false,
       loading: false,
     };
   }
@@ -31,6 +31,7 @@ class  App extends Component {
   onError = () => {
     this.setState({
       error: true,
+      loading: false,
     })
   }
 
@@ -90,9 +91,9 @@ class  App extends Component {
         </header>
         <main>
           {!search && <StartSearch />}
-          {loading && !error && <Spinner />}
+          {loading && <Spinner />}
           {error && <NotFound prop={constants.userNotFound} />}
-          {userInfo && <User allInfo={this.state}/> }
+          {userInfo && !error && <User allInfo={this.state}/> }
         </main>
       </>
     )

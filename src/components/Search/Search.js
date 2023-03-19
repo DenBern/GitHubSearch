@@ -7,9 +7,9 @@ import searchLogo from '../../assets/png/search_input_icon.png';
 import githubLogo from '../../assets/png/github_icon.png';
 
 class Search extends Component {
-    state = {
-      search: '',
-    }
+  state = {
+    search: '',
+  }
 
   handleKeyDownPress = (e) => {
     if (e.key === 'Enter') {
@@ -48,7 +48,7 @@ class Search extends Component {
           </input>
         </div>
       </div>
-      )
+    )
   }
 }
 
