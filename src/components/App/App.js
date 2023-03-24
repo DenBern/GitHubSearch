@@ -42,6 +42,9 @@ class  App extends Component {
   }
 
   updateUser = () => {
+    this.setState({
+      error: false
+    })
     this.userInfo
       .getUserInfo(`${this.state.search}`)
       .then(res =>
