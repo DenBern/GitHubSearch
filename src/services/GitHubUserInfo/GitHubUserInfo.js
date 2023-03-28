@@ -13,7 +13,7 @@ class GitHubUserInfo {
   }
 
   getRepositories = (name) => {
-    return this.getData(`${URL}${name}/repos`);
+    return this.getData(`${URL}${name}/repos?page=1&per_page=4`);
   }
 }
 

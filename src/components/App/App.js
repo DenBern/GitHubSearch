@@ -17,6 +17,7 @@ class  App extends Component {
       search: '',
       error: false,
       loading: false,
+      pages: 0,
     };
   }
 
@@ -56,8 +57,9 @@ class  App extends Component {
               login: res.login,
               followers: res.followers,
               following: res.following,
+              public_repos: res.public_repos,
             },
-          })
+          }),
         )
       .then(this.onLoading)
       .catch(this.onError)
@@ -86,7 +88,7 @@ class  App extends Component {
   render () {
     const {search, error, userDesc, loading, repositories} = this.state;
     const userInfo = userDesc && repositories && !loading;
-
+    
     return (
       <>
         <header>

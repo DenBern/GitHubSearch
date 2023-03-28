@@ -1,22 +1,19 @@
 import React from 'react';
 import ReactPaginate from 'react-paginate';
 
-import { constants } from '../constants/constants';
-
 import './Pagination.scss';
 
-export const Pagination = ({pageCount}) => {
-  console.log(pageCount)
+export const Pagination = () => {
   return (
     <ReactPaginate
-      className="pagination"
-      breakLabel="..."
-      nextLabel=" >"
-      onPageChange={e => console.log(e.selected)}
-      pageRangeDisplayed={constants.maxRepos}
-      pageCount={pageCount}
-      previousLabel="< "
-      renderOnZeroPageCount={null}
+        className="pagination"
+        breakLabel="..."
+        nextLabel=" >"
+        previousLabel="< "
+        onPageChange={e => console.log(e.selected)}
+        pageRangeDisplayed={4}
+        pageCount={5}
+        renderOnZeroPageCount={null}
     />
   )
 }

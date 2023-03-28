@@ -7,27 +7,26 @@ import { constants } from "../../constants/constants";
 
 import './Repositories.scss';
 
-export const Repositories = ({userRepos}) => {
-  const pageCount = Math.ceil(userRepos.length / (constants.maxRepos + 1));
+export const Repositories = (props) => {
+  const{userRepos, repos} = props;
 
-  if (!userRepos.length) {
+  if (!repos) {
     return <NotFound prop={constants.emptyRepos} />
   } else {
-    const elements = userRepos.map((repo, index) => {
-      if (index <= constants.maxRepos) {
+    const elements = userRepos.map((repo) => {
         return <Repository key={repo.id} {...repo} />
       }
-    });
+    );
 
     return (
       <div className="repositories">
-      <>
-        <h1>Repositories ({userRepos.length})</h1>
-        <div className="repositories-list">
-          {elements}
-        </div>
-      </>
-      <Pagination pageCount={pageCount}/>
+        <>
+          <h1>Repositories ({repos})</h1>
+          <div className="repositories-list">
+            {elements}
+          </div>
+        </>
+        <Pagination/>
       </div>
     )
   }
