@@ -22,15 +22,21 @@ class  Repositories extends Component {
 
   userRepos = new GitHubUserInfo();
 
+  onPage = (page) => {
+    this.setState({
+      page: page
+    })
+  }
+
   updateRepositories = () => {
     this.setState({
-      loading: true
+      loading: !this.state.loadingloading
     })
     this.userRepos
-      .getRepositories(`${this.props.user}`, `${this.state.page}`)
+      .getRepositories(`${this.props.user}`, `${this.state.page}`, constants.reposOnThePage)
       .then(repos => 
         this.setState({
-          repositories: [...repos],
+          repositories: repos,
         })
       )
   }
@@ -40,9 +46,17 @@ class  Repositories extends Component {
     this.setState({loading: false})
   }
 
+  componentDidUpdate (newProps, prevProps) {
+    const {page} = this.state;
+    if (page !== prevProps.page) {
+      this.updateRepositories();
+      this.setState({loading: false})
+    }
+  }
+
   render () {
     const {repos} = this.props;
-    const {repositories} = this.state;
+    const {repositories, loading} = this.state;
     const elements = repositories.map(repo => {
       return <Repository key={repo.id} {...repo}/>
     })
@@ -51,11 +65,13 @@ class  Repositories extends Component {
         <div className="repositories">
           <>
             <h1>Repositories ({repos})</h1>
+            {loading ? <span className="blink"> Loading repositories... </span> : 
             <div className="repositories-list">
               {elements}
             </div>
+            }
           </>
-          <Pagination/>
+          <Pagination repos={repos} onPage={this.onPage}/>
         </div>
     )
   }

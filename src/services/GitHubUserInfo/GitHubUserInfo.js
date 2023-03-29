@@ -1,5 +1,4 @@
 const URL = "https://api.github.com/users/";
-const reposOnThePage = 4;
 class GitHubUserInfo {
   getData = async (url) => {
     let res = await fetch(url);
@@ -13,7 +12,7 @@ class GitHubUserInfo {
     return  this.getData(`${URL}${name}`);
   }
 
-  getRepositories = (name, page = 1, ) => {
+  getRepositories = (name, page = 1, reposOnThePage) => {
     return this.getData(`${URL}${name}/repos?page=${page}&per_page=${reposOnThePage}`);
   }
 }

@@ -8,7 +8,9 @@ export const Repository = ({name, description, html_url}) => {
         target="_blank">
         {name}
       </a>
-      <p>{description ? description : 'No description'}</p>
+      <p>
+        {description ? description : 'No description'}
+      </p>
     </div>
   )
 }

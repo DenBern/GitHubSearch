@@ -30,3 +30,12 @@ h2 {
   padding: 24px 32px 24px 32px;
   background-color: #fff;
 }
+
+
+.blink {
+  font-size: 24px;
+  animation: blink 0.5s linear infinite;
+}
+@keyframes blink {
+  100% { color: rgba(39, 37, 37, 0); }
+}
