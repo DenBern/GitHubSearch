@@ -17,7 +17,6 @@ class  App extends Component {
       search: '',
       error: false,
       loading: false,
-      pages: 0,
     };
   }
 
@@ -65,29 +64,17 @@ class  App extends Component {
       .catch(this.onError)
   }
 
-  updateRepositories = () => {
-    this.userInfo
-      .getRepositories(`${this.state.search}`)
-      .then(repos => 
-        this.setState({
-          repositories: repos,
-        })
-      )
-      .catch(this.onError)
-  }
-
   componentDidUpdate (newProps, prevProps) {
     const {search} = this.state;
     if (search !== prevProps.search) {
       this.updateUser();
-      this.updateRepositories();
       this.onLoading();
     }
   }
 
   render () {
-    const {search, error, userDesc, loading, repositories} = this.state;
-    const userInfo = userDesc && repositories && !loading;
+    const {search, error, userDesc, loading} = this.state;
+    const userInfo = userDesc && !loading && !error;
     
     return (
       <>
@@ -95,10 +82,10 @@ class  App extends Component {
           <Search updateState={this.updateState} />
         </header>
         <main>
-          {!search && <StartSearch />}
-          {loading && <Spinner />}
-          {error && <NotFound prop={constants.userNotFound} />}
-          {userInfo && !error && <User allInfo={this.state}/> }
+          {!search && <StartSearch/>}
+          {loading && <Spinner/>}
+          {error && <NotFound prop={constants.userNotFound}/>}
+          {userInfo && <User allInfo={this.state}/>}
         </main>
       </>
     )
