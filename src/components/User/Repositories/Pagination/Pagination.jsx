@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactPaginate from 'react-paginate';
-import { constants } from '../constants/constants';
+import { constants } from '../../../constants/constants';
 
 import './Pagination.scss';
 

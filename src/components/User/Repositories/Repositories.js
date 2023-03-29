@@ -2,7 +2,8 @@ import React from "react";
 import { Component } from "react";
 import { NotFound } from "../NotFound/NotFound";
 import { Repository } from "./Repository/Repository";
-import { Pagination } from "../../Pagination/Pagination.jsx";
+import { Pagination } from "./Pagination/Pagination.jsx";
+import { Items } from "./Items/Items.jsx";
 
 import GitHubUserInfo from "../../../services/GitHubUserInfo/GitHubUserInfo";
 
@@ -28,10 +29,14 @@ class  Repositories extends Component {
     })
   }
 
-  updateRepositories = () => {
+  onLoading = () => {
     this.setState({
-      loading: !this.state.loadingloading
+      loading: !this.state.loading
     })
+  }
+
+  updateRepositories = () => {
+    this.onLoading()
     this.userRepos
       .getRepositories(`${this.props.user}`, `${this.state.page}`, constants.reposOnThePage)
       .then(repos => 
@@ -39,24 +44,27 @@ class  Repositories extends Component {
           repositories: repos,
         })
       )
+      .then(this.onLoading)
   }
 
   componentDidMount() {
     this.updateRepositories();
-    this.setState({loading: false})
   }
 
   componentDidUpdate (newProps, prevProps) {
     const {page} = this.state;
     if (page !== prevProps.page) {
       this.updateRepositories();
-      this.setState({loading: false})
     }
   }
 
   render () {
     const {repos} = this.props;
-    const {repositories, loading} = this.state;
+    const {repositories, loading, page} = this.state;
+
+    const reposStart = page * constants.reposOnThePage - constants.reposOnThePage + 1;
+    const reposEnd = page * constants.reposOnThePage;
+
     const elements = repositories.map(repo => {
       return <Repository key={repo.id} {...repo}/>
     })
@@ -71,7 +79,17 @@ class  Repositories extends Component {
             </div>
             }
           </>
-          <Pagination repos={repos} onPage={this.onPage}/>
+          <div className="pages-items">
+            <Items 
+              repos={repos} 
+              reposStart={reposStart} 
+              reposEnd={reposEnd}
+            />
+            <Pagination 
+              repos={repos} 
+              onPage={this.onPage}
+            />
+          </div>
         </div>
     )
   }
