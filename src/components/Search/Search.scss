@@ -1,4 +1,4 @@
-.search-wrapper {
+.base {
   display: flex;
   flex-direction: row;
   gap: 22.02px;
@@ -7,6 +7,7 @@
     .logo {
       width: 41.02px;
       height: 40px;
+      background-image: url('../../assets/png/github_icon.png');
       transform: scale(1);
       transition: 0.5s;
     }
@@ -32,6 +33,7 @@
         .search-icon {
           width: 14px;
           height: 14px;
+          background-image: url('../../assets/png/search_input_icon.png');
         }
 
         input {
