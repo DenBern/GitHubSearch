@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { User } from "../User/User";
 import { Search } from '../Search/Search.jsx';
 import { NotFound } from "../User/NotFound/NotFound";
-import { StartSearch } from "../User/StartSearch/StartSearch.jsx";
+import { StartSearch } from "../StartSearch/StartSearch.jsx";
 import { Spinner } from "../Spinner/Spinner";
 
 import GitHubUserInfo from "../../services/GitHubUserInfo/GitHubUserInfo";
@@ -26,7 +26,7 @@ const App = () => {
           {!userName && <StartSearch/>}
           {/* {loading && <Spinner/>} */}
           {/* {error && <NotFound prop={constants.userNotFound}/>} */}
-          {/* {userName && <User userName={userName}/>} */}
+          {userName && <User userName={userName}/>}
         </main>
       </>
     )
