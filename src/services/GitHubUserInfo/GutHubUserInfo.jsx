@@ -4,7 +4,13 @@ export const useGitHubUserInfo = () => {
   const URL = "https://api.github.com/users/";
   const reposOnThePage = 4;
 
-  const [userDesc, setUserDesc] = useState({});
+  const [desc, setDesc] = useState({});
+  const [descLoading, setDescLoading] = useState(false);
+  const [descError, setDescError] = useState(false);
+
+  const [repos, setRepos] = useState([]);
+  const [reposLoading, setReposLoading] = useState(false);
+  const [reposError, setReposError] = useState(false);
 
   const getData = async (url) => {
     let res = await fetch(url);
@@ -14,27 +20,38 @@ export const useGitHubUserInfo = () => {
     return await res.json();
   }
 
-  const getUserInfo = (name) => {
+  const getUserDesc = (name) => {
+    setDescError(false);
+    setDescLoading(true);
     getData(`${URL}${name}`)
-      .then(res => {
-        setUserDesc({
-          avatar: res.avatar_url,
-          name: res.name,
-          url: res.html_url,
-          login: res.login,
-          followers: res.followers,
-          following: res.following,
-          public_repos: res.public_repos,
-        })
+      .then(desc => {
+        setDesc({
+          avatar: desc.avatar_url,
+          name: desc.name,
+          url: desc.html_url,
+          login: desc.login,
+          followers: desc.followers,
+          following: desc.following,
+          public_repos: desc.public_repos,
+        });
+        setDescLoading(false);
       })
+      // .catch(setDescError(true))
   }
 
-  // const getRepositories = async (name, page = 1) => {
-  //   return  await getData(`${URL}${name}/repos?page=${page}&per_page=${reposOnThePage}`)
-  //   .then(res => {
+  const getUserRepositories = (name, page = 1) => {
+    setReposError(false);
+    setReposLoading(true);
+    getData(`${URL}${name}/repos?page=${page}&per_page=${reposOnThePage}`)
+      .then(repos => {
+        setRepos([...repos]);
+        setReposLoading(false);
+      })
+      .catch(setReposError(true))
+  }
 
-  //   });
-  // }
-
-  return {getUserInfo, URL, userDesc}
+  return {
+    descError, descLoading, getUserDesc, desc,
+    reposError, reposLoading, getUserRepositories, repos
+  }
 }

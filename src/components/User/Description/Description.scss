@@ -7,6 +7,7 @@
       width: 280px;
       height: 280px;
       border-radius: 50%;
+      background-size: contain;
     }
 
     .name-link {
@@ -55,10 +56,18 @@
       align-items: center;
       gap: 8px;
 
-        .icon {
+        .followers-icon {
           display: flex;
           width: 16.06px;
           height: 16px;
+          background: url('../../../assets/png/followers_icon.png') no-repeat;
+        }
+
+        .following-icon {
+          display: flex;
+          width: 16.06px;
+          height: 16px;
+          background: url('../../../assets/png/following_icon.png') no-repeat;
         }
 
         span {

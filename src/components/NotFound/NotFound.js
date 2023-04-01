@@ -1,7 +1,7 @@
 import React from "react";
 
-import userNotFoundIcon from '../../../assets/png/not_found_user_icon.png';
-import reposNotFoundIcon from '../../../assets/png/not_found_repos_icon.png';
+import userNotFoundIcon from '../../assets/png/not_found_user_icon.png';
+import reposNotFoundIcon from '../../assets/png/not_found_repos_icon.png';
 
 import './NotFound.scss';
 
