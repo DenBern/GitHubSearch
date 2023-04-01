@@ -24,7 +24,7 @@ export const Search = (props) => {
           type="text"
           placeholder="Enter GitHub username"
           value={search}
-          onChange={(e) => {setSearch(e.target.value)}}
+          onChange={e => setSearch(e.target.value)}
           onKeyPress={handleKeyDownPress}>
         </input>
       </div>
