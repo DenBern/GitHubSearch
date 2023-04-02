@@ -1,6 +1,6 @@
 import React from "react"
 
-export const Repository = ({props}) => {
+export const Repository = (props) => {
   const {html_url, name, description} = props;
 
   return (

@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
-import { NotFound } from "../NotFound/NotFound";
-import { Repository } from "./Repository/Repository";
+import { NotFound } from "../../NotFound/NotFound.jsx";
+import { Repository } from "./Repository/Repository.jsx";
 import { Pagination } from "./Pagination/Pagination.jsx";
 import { Items } from "./Items/Items.jsx";
 import { useGitHubUserInfo } from "../../../services/GitHubUserInfo/GutHubUserInfo.jsx";
@@ -8,13 +8,14 @@ import { useGitHubUserInfo } from "../../../services/GitHubUserInfo/GutHubUserIn
 import { constants } from "../../constants/constants"; 
 
 import './Repositories.scss';
-import { Spinner } from "../../Spinner/Spinner";
+import { Spinner } from "../../Spinner/Spinner.jsx";
 
 export const  Repositories = (props) => {
   const {userName, countRepos} = props;
+
   const {reposError, reposLoading, getUserRepositories, repos} =  useGitHubUserInfo();
+
   const [page, setPage] = useState(1);
-  
 
   const onPage = (page) => {
     setPage(page)
@@ -33,18 +34,18 @@ export const  Repositories = (props) => {
 
     return (
       <div className="repositories">
-        {reposLoading && <Spinner/>}
-        {!repos 
+        {!countRepos 
           ? <NotFound prop={constants.emptyRepos}/> 
-          :
-            <>
+          : (
               <>
                 <h1>Repositories ({countRepos})</h1>
-                  <div className="repositories-list">
-                    {/* {element} */}
-                  </div>
+                <div className="repositories-list">
+                  {reposLoading && <Spinner/>}
+                  {element}
+                </div>
               </>
-              <div className="pages-items">
+            )
+              /* <div className="pages-items">
                 <Items 
                   repos={repos} 
                   reposStart={firstPage} 
@@ -54,8 +55,7 @@ export const  Repositories = (props) => {
                   repos={repos} 
                   onPage={onPage}
                 />
-              </div>
-            </>
+              </div> */
         }
       </div>
     )
