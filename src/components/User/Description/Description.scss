@@ -60,14 +60,14 @@
           display: flex;
           width: 16.06px;
           height: 16px;
-          background: url('../../../assets/png/followers_icon.png') no-repeat;
+          background-image: url("../../../assets/png/followers_icon.png");
         }
 
         .following-icon {
           display: flex;
           width: 16.06px;
           height: 16px;
-          background: url('../../../assets/png/following_icon.png') no-repeat;
+          background: url("../../../assets/png/following_icon.png") no-repeat;
         }
 
         span {

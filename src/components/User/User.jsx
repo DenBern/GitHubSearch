@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import { useGitHubUserInfo } from "../../services/GitHubUserInfo/GutHubUserInfo.jsx";
+import { useGitHubUserInfo } from "../../services/GitHubUserInfo/GutHubUserInfo.js";
 import { Description } from "./Description/Description.jsx";
 import { Repositories } from "./Repositories/Repositories.jsx";
 import { NotFound } from "../NotFound/NotFound.jsx";
@@ -20,7 +20,7 @@ export const User = (props) => {
 
   return (
     <section className="user-info">
-      {/* {descError && <NotFound prop={constants.userNotFound}/>} */}
+      {descError && <NotFound prop={constants.userNotFound}/>}
       {descLoading && <Spinner/>}
       {!descLoading && <Description {...desc} loading={descLoading}/>}
       {countRepos 

@@ -10,13 +10,9 @@
     .user-icon {
       width: 64.17px;
       height: 64.17px;
+      background: url('../../assets/png/not_found_user_icon.png') no-repeat;
     }
 
-    .repos-icon {
-      width: 76px;
-      height: 62px;
-    }
-  
     p {
       font-size: 22px;
       text-align: center;
@@ -36,5 +32,6 @@
   .repos-icon {
     width: 76px;
     height: 62px;
+    background: url('../../assets/png/not_found_repos_icon.png') no-repeat;
   }
 }

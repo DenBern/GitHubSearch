@@ -8,14 +8,7 @@ import './NotFound.scss';
 export const NotFound = ({prop}) => {
     return (
       <div className={`${prop}-not-found`}>
-        <div 
-          className={`${prop}-icon`}
-          style={
-            {
-              background: `url(${prop === 'user' ? userNotFoundIcon : reposNotFoundIcon})`,
-              backgroundRepeat: "no-repeat",
-            }
-          } />
+        <div className={`${prop}-icon`}/>
         <p className="info-text">
           {prop === 'user' ? 'User not found' : 'Repository list is empty'}
         </p>
