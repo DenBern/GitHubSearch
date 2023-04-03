@@ -12,7 +12,7 @@ import { Spinner } from "../../Spinner/Spinner.jsx";
 export const  Repositories = (props) => {
   const {userName, countRepos} = props;
 
-  const {reposError, reposLoading, getUserRepositories, repos, descLoading} =  useGitHubUserInfo();
+  const {reposError, reposLoading, getUserRepositories, repos} =  useGitHubUserInfo();
 
   const [page, setPage] = useState(1);
 
@@ -38,20 +38,16 @@ export const  Repositories = (props) => {
 
     return (
           <div className="repositories">
-            {!countRepos 
-              ? <NotFound prop={constants.emptyRepos}/> 
-              : (
-                  <>
-                    <h1>Repositories ({countRepos})</h1>
-                    {reposLoading && <Spinner/>}
-                    {!reposLoading && 
-                      <div className="repositories-list">
-                        {element}
-                      </div>
-                    }
-                  </>
-                )
-            }
+            {!countRepos && <NotFound prop={constants.emptyRepos}/>}
+            <>
+              <h1>Repositories ({countRepos})</h1>
+              {reposLoading && <Spinner/>}
+              {!reposLoading && 
+                <div className="repositories-list">
+                  {element}
+                </div>
+              }
+            </>
             <div className="pages">
               <>
                 <p className="number-page">
