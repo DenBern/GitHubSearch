@@ -9,7 +9,7 @@ import { constants } from "../constants/constants.js";
 import './App.scss';
 
 export const App = () => {
-  const [userName, setUserName] = useState();
+  const [userName, setUserName] = useState('');
 
   const updateUser = (search) => {
     setUserName(search)

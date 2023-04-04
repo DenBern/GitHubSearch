@@ -11,10 +11,10 @@ export const User = (props) => {
   const {userName} = props;
 
   useEffect(() => {
-    getUserDesc(userName)
-  }, [props])
+    getUserDesc(userName);
+  }, [props]);
 
-  const {descError, descLoading, getUserDesc, desc, repos} = useGitHubUserInfo();                               
+  const {descError, descLoading, getUserDesc, desc, repos} = useGitHubUserInfo();                      
 
   const countRepos = desc.public_repos;
 
