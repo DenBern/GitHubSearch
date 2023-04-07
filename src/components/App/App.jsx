@@ -11,18 +11,13 @@ import './App.scss';
 export const App = () => {
   const [userName, setUserName] = useState('');
 
-  const updateUser = (search) => {
-    setUserName(search)
-  }
-
   return (
     <>
       <header>
-        <Search updateUser={updateUser}/>
+        <Search updateUser={(search) => setUserName(search)}/>
       </header>
       <main>
-        {!userName && <StartSearch/>}
-        {userName && <User userName={userName}/>}
+        {!userName ? <StartSearch/> : <User userName={userName}/>}
         {/* {descError && <NotFound prop={constants.userNotFound}/>} */}
       </main>
     </>

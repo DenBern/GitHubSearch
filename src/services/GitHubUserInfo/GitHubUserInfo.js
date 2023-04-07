@@ -2,7 +2,6 @@ import { useState } from "react";
 
 export const useGitHubUserInfo = () => {
   const URL = "https://api.github.com/users/";
-  const reposOnThePage = 4;
 
   const [desc, setDesc] = useState({});
   const [descLoading, setDescLoading] = useState(false);
@@ -36,10 +35,14 @@ export const useGitHubUserInfo = () => {
         });
         setDescLoading(false);
       })
-      // .catch(setDescError(true))
+      .catch(() => {
+          setDescError(true);
+          setDescLoading(false)
+        }
+      )
   }
 
-  const getUserRepositories = (name, page = 1) => {
+  const getUserRepositories = (name, page = 1, reposOnThePage) => {
     setReposError(false);
     setReposLoading(true);
     getData(`${URL}${name}/repos?page=${page}&per_page=${reposOnThePage}`)
@@ -47,11 +50,21 @@ export const useGitHubUserInfo = () => {
         setRepos([...repos]);
         setReposLoading(false);
       })
-      .catch(setReposError(true))
+      .catch(() => {
+          setReposError(true);
+          setReposLoading(false)
+        }
+      )
   }
 
   return {
-    descError, descLoading, getUserDesc, desc,
-    reposError, reposLoading, getUserRepositories, repos
+    descError, 
+    descLoading, 
+    getUserDesc, 
+    desc,
+    reposError, 
+    reposLoading, 
+    getUserRepositories, 
+    repos
   }
 }

@@ -1,33 +1,34 @@
-import React, {useState, useEffect} from "react";
-import { useGitHubUserInfo } from "../../services/GitHubUserInfo/GutHubUserInfo.js";
+import React, { useEffect } from "react";
+import { useGitHubUserInfo } from "../../services/GitHubUserInfo/GitHubUserInfo.js";
 import { Description } from "./Description/Description.jsx";
 import { Repositories } from "./Repositories/Repositories.jsx";
 import { NotFound } from "../NotFound/NotFound.jsx";
 import { constants } from "../constants/constants.js";
 import { Spinner } from "../Spinner/Spinner.jsx";
+
 import "./User.scss";
 
-export const User = (props) => {
-  const {userName} = props;
+export const User = ({userName}) => {
+
+  const {descError, descLoading, getUserDesc, desc = {}} = useGitHubUserInfo();
+  const countRepos = desc.public_repos;
 
   useEffect(() => {
     getUserDesc(userName);
-  }, [props]);
-
-  const {descError, descLoading, getUserDesc, desc, repos} = useGitHubUserInfo();                      
-
-  const countRepos = desc.public_repos;
+  }, [userName]);
 
   return (
     <section className="user-info">
-      {descError && <NotFound prop={constants.userNotFound}/>}
-      {descLoading && <Spinner/>}
-      {!descLoading && <Description {...desc} loading={descLoading}/>}
-      {countRepos 
-        ? <Repositories countRepos={countRepos} userName={userName}/>
-        : <NotFound prop={constants.emptyRepos}/>
+      { 
+        desc && !descError 
+        ? 
+        ( <>
+            <Description {...desc} descLoading={descLoading}/> 
+            <Repositories countRepos={countRepos} userName={userName}/>
+          </>
+        )
+        : <NotFound prop={constants.userNotFound}/>
       }
-      {/* <Repositories userName={userName} countRepos={countRepos}/> */}
     </section>
   )
 }

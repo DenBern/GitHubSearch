@@ -5,16 +5,16 @@ import './Description.scss';
 
 import userphoto from "../../../assets/png/not_found_user_icon.png"
 
-export const Description = ({avatar, name, login, url, followers, following, loading }) => {
+export const Description = ({avatar, name, login, url, followers, following, descLoading }) => {
   
   return (
     <div className="description">
-      {loading ? <Spinner/> : (
+      {descLoading ? <Spinner/> : (
         <>
           <div
             className="photo"
-            style={{backgroundImage: `url(${!avatar ? userphoto : avatar})`}}>
-          </div>
+            style={{backgroundImage: `url(${!avatar ? userphoto : avatar})`}}
+          />
           <div className="name-link">
             <p className="name">{!name ? 'Name is empty' : name}</p>
             <a 

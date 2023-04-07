@@ -16,8 +16,8 @@ export const Search = (props) => {
     <div className="base">
       <div
         onClick={() => window.location.reload(false)}
-        className="logo">
-      </div>
+        className="logo"
+      />
       <div className="search">
         <div className="search-icon" />
         <input 
@@ -25,8 +25,8 @@ export const Search = (props) => {
           placeholder="Enter GitHub username"
           value={search}
           onChange={e => setSearch(e.target.value)}
-          onKeyPress={handleKeyDownPress}>
-        </input>
+          onKeyPress={handleKeyDownPress}
+        />
       </div>
     </div>
   )
