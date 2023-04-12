@@ -16,9 +16,12 @@ export const  Repositories = ({userName, countRepos}) => {
   const [page, setPage] = useState(1);
 
   const reposOnThePage = 4;
-  const firstPage = page * reposOnThePage - constants.reposOnThePage + 1;
+  const firstPage = page * reposOnThePage - reposOnThePage + 1;
   const lastPage = page * reposOnThePage;
   const pages = Math.ceil(countRepos / reposOnThePage);
+
+  console.log(firstPage, 'first')
+  console.log(lastPage, 'last')
 
   useEffect(() => {
     getUserRepositories(userName, page, reposOnThePage);
