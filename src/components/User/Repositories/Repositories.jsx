@@ -21,17 +21,15 @@ export const  Repositories = ({userName, countRepos}) => {
 
   useEffect(() => {
     getUserRepositories(userName, page, reposOnThePage);
-    
   }, [userName, page])
-  
+
     return (
-          <div className="repositories">
+      <div className="repositories">
           {reposError && 'Error loading repos...'}
-          {countRepos ?
+          {countRepos ? (
               <>
                 <h2>Repositories ({countRepos})</h2>
-                {reposLoading 
-                  ? <Spinner/> 
+                {reposLoading ? <Spinner/> 
                   : (
                       <div className="repositories-list">
                         {repos.map(repo => <Repository key={repo.id} {...repo}/>)}
@@ -54,10 +52,10 @@ export const  Repositories = ({userName, countRepos}) => {
                     renderOnZeroPageCount={null}
                   />
                 </div>
-              </>
-            : <NotFound prop={constants.emptyRepos}/>
-          }
-          {}
-          </div>
+              </> 
+              ) : ( 
+                <NotFound prop={constants.emptyRepos}/>
+              )}
+      </div>
     )
 }

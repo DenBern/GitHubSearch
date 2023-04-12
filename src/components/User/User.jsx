@@ -19,14 +19,13 @@ export const User = ({userName}) => {
 
   return (
     <section className="user-info">
-      { 
-        desc && !descError 
-        ? 
-        ( <>
+      { desc && !descError ? 
+        ( 
+          <>
             <Description {...desc} descLoading={descLoading}/> 
             <Repositories countRepos={countRepos} userName={userName}/>
           </>
-        )
+        ) 
         : <NotFound prop={constants.userNotFound}/>
       }
     </section>
