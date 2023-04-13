@@ -49,20 +49,19 @@ h2 {
           padding:  2px 6px;
         }
       }
-    }
-    
-    .selected {
-      background-color: #0064EB;
-      color: #eee;
-      border-radius: 3px;
-    }
-    
-    .disabled {
-      color: #808080;
-    }
-    
-    a .selected {
-      color: #eee;
+      .selected {
+        background-color: #0064EB;
+        color: #eee;
+        border-radius: 3px;
+      }
+      
+      .disabled {
+        color: #808080;
+      }
+      
+      a .selected {
+        color: #eee;
+      }
     }
   }
 }

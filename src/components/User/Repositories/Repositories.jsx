@@ -4,14 +4,14 @@ import { NotFound } from "../../NotFound/NotFound.jsx";
 import { Repository } from "./Repository/Repository.jsx";
 import { constants } from "../../constants/constants.js";
 import { useGitHubUserInfo } from "../../../services/GitHubUserInfo/GitHubUserInfo.js";
-
-import './Repositories.scss';
 import { Spinner } from "../../Spinner/Spinner.jsx";
 
-export const  Repositories = ({userName, countRepos}) => {
+import './Repositories.scss';
 
+export const  Repositories = ({userName, countRepos}) => {
   const {reposError, reposLoading, getUserRepositories, repos} =  useGitHubUserInfo();
 
+  const [name, setName] = useState('')
   const [page, setPage] = useState(1);
 
   const reposOnThePage = 4;
@@ -20,13 +20,18 @@ export const  Repositories = ({userName, countRepos}) => {
   const pages = Math.ceil(countRepos / reposOnThePage);
 
   useEffect(() => {
+    setPage(1);
+  }, [userName]);
+
+  useEffect(() => {
     getUserRepositories(userName, page, reposOnThePage);
-  }, [userName, page])
+  }, [page])
 
     return (
       <div className="repositories">
           {reposError && 'Error loading repos...'}
-          {countRepos ? (
+          {countRepos ? 
+            (
               <>
                 <h2>Repositories ({countRepos})</h2>
                 {reposLoading ? <Spinner/> 
@@ -46,16 +51,19 @@ export const  Repositories = ({userName, countRepos}) => {
                     breakLabel="..."
                     nextLabel=" >"
                     previousLabel="< "
-                    onPageChange={e => setPage(e.selected + 1)}
                     pageRangeDisplayed={reposOnThePage}
                     pageCount={pages}
                     renderOnZeroPageCount={null}
+                    onPageChange={(e) => setPage(e.selected + 1)}
+                    forcePage={page - 1}
                   />
                 </div>
               </> 
-              ) : ( 
-                <NotFound prop={constants.emptyRepos}/>
-              )}
+            ) : 
+                ( 
+                  <NotFound prop={constants.emptyRepos}/>
+                )
+          }
       </div>
     )
 }
