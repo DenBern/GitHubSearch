@@ -75,6 +75,12 @@ h2 {
 
   padding: 24px 32px 24px 32px;
   background-color: #fff;
+  
+  p {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
 }
 
 
