@@ -26,7 +26,7 @@ export const Description = ({avatar, name, login, url, followers, following, des
           </div>
           <div className="followers-following">
             <div className="followers">
-              <div className="followers-icon"/>
+              <div className="followers-icon-"/>
               <span>{`${followers > 1000 ? (followers / 1000).toFixed(1) + 'k' : followers} followers`}</span>
             </div>
             <div className="following">

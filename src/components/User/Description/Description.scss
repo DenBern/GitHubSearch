@@ -48,33 +48,33 @@
           font-size: 16px;
           color: #000;
         }
-    }
 
-    .following {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      gap: 8px;
-
-        .followers-icon {
+        .followers-icon- {
           display: flex;
-          width: 16.06px;
-          height: 16px;
+          width: 22.08px;
+          height: 14px;
           background-image: url("../../../assets/png/followers_icon.png");
         }
+      }
 
-        .following-icon {
-          display: flex;
-          width: 16.06px;
-          height: 16px;
-          background: url("../../../assets/png/following_icon.png") no-repeat;
-        }
+      .following {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 8px;
 
-        span {
-          font-size: 16px;
-          color: #000;
-        }
-    }
+          .following-icon {
+            display: flex;
+            width: 16.06px;
+            height: 16px;
+            background: url("../../../assets/png/following_icon.png") no-repeat;
+          }
+
+          span {
+            font-size: 16px;
+            color: #000;
+          }
+      }
   }
 }
 
