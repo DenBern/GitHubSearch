@@ -20,13 +20,14 @@ export const  Repositories = ({userName, countRepos}) => {
   const pages = Math.ceil(countRepos / reposOnThePage);
 
   useEffect(() => {
-    setPage(1);
+    setPage(1)
   }, [userName]);
 
   useEffect(() => {
     getUserRepositories(userName, page, reposOnThePage);
   }, [page])
 
+  console.log(page)
     return (
       <div className="repositories">
           {reposError && 'Error loading repos...'}

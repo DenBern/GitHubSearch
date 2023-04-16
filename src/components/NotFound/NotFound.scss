@@ -35,3 +35,18 @@
     background: url('../../assets/png/not_found_repos_icon.png') no-repeat;
   }
 }
+
+//Adaptive
+
+@media (max-width: 320px) {
+  .repos-not-found {
+    gap: 15px;
+    padding-top: 75px;
+    margin: 0 auto;
+  }
+
+  .user-not-found {
+    margin: 0 auto;
+    padding-top: 200px;
+  }
+}

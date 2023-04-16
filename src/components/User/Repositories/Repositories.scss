@@ -96,15 +96,27 @@ h2 {
 
 @media(max-width: 320px) {
   .repositories {
-    width: 300px;
+    width: 320px;
+    gap: 15px;
+    padding: 0 10px 0 10px;
+
+    h2 {
+      text-align: center;
+      font-size: 18px;
+    }
 
     .repositories-list {
+      gap: 10px;
+
+      .repository {
+        gap: 5px;
+        padding: 5px 10px 5px 10px;
+      }
+    }
+
+    .pages {
+      flex-direction: column-reverse;
       align-items: center;
     }
-  }
-
-  .repository {
-    gap: 10px;
-    padding: 5px 10px 5px 10px;
   }
 }
