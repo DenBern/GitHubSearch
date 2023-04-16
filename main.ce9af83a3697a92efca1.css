@@ -1,0 +1,655 @@
+/*!************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/components/Spinner/Spinner.scss ***!
+  \************************************************************************************************************************************************************************/
+.loader {
+  border: 10px solid #f3f3f3;
+  border-top: 10px solid #0064EB;
+  border-radius: 50%;
+  width: 90px;
+  height: 90px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+/*!*************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/components/User/Description/Description.scss ***!
+  \*************************************************************************************************************************************************************************************/
+.description {
+  display: flex;
+  flex-direction: column;
+  gap: 27px;
+}
+.description .photo {
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  background-size: contain;
+}
+.description .name-link {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.description p {
+  font-size: 26px;
+  font-weight: 600;
+  color: #000;
+}
+.description a {
+  text-decoration: none;
+  color: #0064EB;
+}
+.description .followers-following {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+.description .followers-following .followers {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+}
+.description .followers-following .followers .icon {
+  display: flex;
+  width: 22.08px;
+  height: 14px;
+}
+.description .followers-following .followers span {
+  font-size: 16px;
+  color: #000;
+}
+.description .followers-following .following {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+}
+.description .followers-following .following .followers-icon {
+  display: flex;
+  width: 16.06px;
+  height: 16px;
+  background-image: url(assets/5dd2370ff97ddb6b185f.png);
+}
+.description .followers-following .following .following-icon {
+  display: flex;
+  width: 16.06px;
+  height: 16px;
+  background: url(assets/3a1bbc7370c1cb709d38.png) no-repeat;
+}
+.description .followers-following .following span {
+  font-size: 16px;
+  color: #000;
+}
+
+@media (min-width: 320px) and (max-width: 479px) {
+  .description {
+    gap: 10px;
+    align-items: center;
+  }
+  .description .photo {
+    width: 150px;
+    height: 150px;
+  }
+  .description .name-link {
+    align-items: center;
+  }
+  .description .name-link p {
+    font-size: 18px;
+  }
+}
+@media (min-width: 480px) and (max-width: 639px) {
+  .description {
+    gap: 20px;
+    align-items: center;
+  }
+  .description .photo {
+    width: 200px;
+    height: 200px;
+  }
+  .description .name-link {
+    align-items: center;
+  }
+  .description .name-link p {
+    font-size: 24px;
+  }
+}
+@media (min-width: 640px) and (max-width: 999px) {
+  .description {
+    gap: 40px;
+    align-items: center;
+    flex-direction: row;
+  }
+  .description .photo {
+    width: 215px;
+    height: 215px;
+  }
+  .description .name-link {
+    align-items: center;
+  }
+  .description .name-link p {
+    font-size: 24px;
+  }
+  .description .followers-following {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+@media (min-width: 1000px) and (max-width: 1365px) {
+  .description {
+    gap: 40px;
+    align-items: center;
+    flex-direction: column;
+  }
+  .description .photo {
+    width: 230px;
+    height: 230px;
+  }
+  .description .name-link {
+    align-items: center;
+  }
+  .description .name-link p {
+    font-size: 28px;
+  }
+  .description .followers-following {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+/*!**************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/components/NotFound/NotFound.scss ***!
+  \**************************************************************************************************************************************************************************/
+.user-not-found {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 46.92px;
+  width: 210px;
+  margin: 245px auto 0 auto;
+}
+.user-not-found .user-icon {
+  width: 64.17px;
+  height: 64.17px;
+  background: url(assets/153de825541da6c224da.png) no-repeat;
+}
+.user-not-found p {
+  font-size: 22px;
+  text-align: center;
+  line-height: 140%;
+}
+
+.repos-not-found {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 46.92px;
+  width: 210px;
+  margin: 182px auto 0 auto;
+}
+.repos-not-found .repos-icon {
+  width: 76px;
+  height: 62px;
+  background: url(assets/7512a3560b955d78608f.png) no-repeat;
+}
+
+@media (min-width: 320px) and (max-width: 479px) {
+  .repos-not-found {
+    gap: 15px;
+    padding-top: 75px;
+    margin: 0 auto;
+  }
+  .user-not-found {
+    margin: 0 auto;
+    padding-top: 200px;
+  }
+}
+@media (min-width: 480px) and (max-width: 639px) {
+  .repos-not-found {
+    gap: 15px;
+    padding-top: 75px;
+    margin: 0 auto;
+  }
+  .user-not-found {
+    margin: 0 auto;
+    padding-top: 200px;
+  }
+}
+@media (min-width: 640px) and (max-width: 999px) {
+  .repos-not-found {
+    gap: 15px;
+    padding-top: 75px;
+    margin: 0 auto;
+  }
+  .user-not-found {
+    margin: 0 auto;
+    padding-top: 200px;
+  }
+}
+@media (min-width: 1000px) and (max-width: 1365px) {
+  .repos-not-found {
+    gap: 15px;
+    padding-top: 75px;
+    margin: 0 auto;
+  }
+  .user-not-found {
+    margin: 0 auto;
+    padding-top: 200px;
+  }
+}
+/*!***************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/components/User/Repositories/Repositories.scss ***!
+  \***************************************************************************************************************************************************************************************/
+h2 {
+  font-weight: 600;
+}
+
+.repositories {
+  color: #000;
+  display: flex;
+  flex-direction: column;
+  gap: 29px;
+  width: 877px;
+}
+.repositories .repository a {
+  text-decoration: none;
+  color: #0064EB;
+}
+.repositories .repositories-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.repositories .pages {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  gap: 24px;
+}
+.repositories .pages .number-page {
+  width: 111px;
+  height: 21px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+}
+.repositories .pages .pagination {
+  font-family: "Inter", sans-serif;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+.repositories .pages .pagination li {
+  cursor: pointer;
+  list-style: none;
+}
+.repositories .pages .pagination li a {
+  padding: 2px 6px;
+}
+.repositories .pages .pagination .selected {
+  background-color: #0064EB;
+  color: #eee;
+  border-radius: 3px;
+}
+.repositories .pages .pagination .disabled {
+  color: #808080;
+}
+.repositories .pages .pagination a .selected {
+  color: #eee;
+}
+
+.repository {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 24px 32px 24px 32px;
+  background-color: #fff;
+}
+.repository p {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.blink {
+  padding: 50px;
+  font-size: 24px;
+  animation: blink 0.5s linear infinite;
+}
+
+@keyframes blink {
+  100% {
+    color: rgba(39, 37, 37, 0);
+  }
+}
+@media (min-width: 320px) and (max-width: 479px) {
+  .repositories {
+    width: 320px;
+    gap: 15px;
+    padding: 0 10px 0 10px;
+  }
+  .repositories h2 {
+    text-align: center;
+    font-size: 18px;
+  }
+  .repositories .repositories-list {
+    gap: 10px;
+  }
+  .repositories .repositories-list .repository {
+    gap: 5px;
+    padding: 5px 10px 5px 10px;
+  }
+  .repositories .pages {
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: 15px;
+  }
+  .repositories .pages .number-page {
+    width: 50%;
+    text-align: center;
+  }
+  .repositories .pages .pagination {
+    gap: 5px;
+  }
+}
+@media (min-width: 480px) and (max-width: 639px) {
+  .repositories {
+    width: 450px;
+    gap: 15px;
+    padding: 0 10px 0 10px;
+  }
+  .repositories h2 {
+    text-align: center;
+    font-size: 18px;
+  }
+  .repositories .repositories-list {
+    gap: 10px;
+  }
+  .repositories .repositories-list .repository {
+    gap: 5px;
+    padding: 5px 10px 5px 10px;
+  }
+  .repositories .pages {
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: 15px;
+  }
+  .repositories .pages .number-page {
+    width: 50%;
+    text-align: center;
+  }
+  .repositories .pages .pagination {
+    gap: 5px;
+  }
+}
+@media (min-width: 640px) and (max-width: 999px) {
+  .repositories {
+    width: 80%;
+    gap: 15px;
+    padding: 0 10px 0 10px;
+  }
+  .repositories h2 {
+    text-align: center;
+    font-size: 20px;
+  }
+  .repositories .repositories-list {
+    gap: 10px;
+  }
+  .repositories .repositories-list .repository {
+    gap: 5px;
+    padding: 5px 10px 5px 10px;
+  }
+  .repositories .pages {
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: 15px;
+  }
+  .repositories .pages .number-page {
+    width: 50%;
+    text-align: center;
+  }
+  .repositories .pages .pagination {
+    gap: 5px;
+  }
+}
+@media (min-width: 1000px) and (max-width: 1365px) {
+  .repositories {
+    width: 70%;
+    gap: 15px;
+    padding: 0 10px 0 10px;
+  }
+  .repositories h2 {
+    text-align: center;
+    font-size: 24px;
+  }
+  .repositories .repositories-list {
+    gap: 10px;
+  }
+  .repositories .repositories-list .repository {
+    gap: 5px;
+    padding: 20px 10px 15px 10px;
+  }
+  .repositories .pages {
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: 15px;
+  }
+  .repositories .pages .number-page {
+    width: 50%;
+    text-align: center;
+  }
+  .repositories .pages .pagination {
+    gap: 5px;
+  }
+}
+/*!******************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/components/User/User.scss ***!
+  \******************************************************************************************************************************************************************/
+.user-info {
+  display: flex;
+  flex-direction: row;
+  gap: 85px;
+  padding: 39px 56px 77px 57px;
+}
+
+@media (min-width: 320px) and (max-width: 479px) {
+  .user-info {
+    align-items: center;
+    flex-direction: column;
+    padding: 20px 0 0 0;
+    gap: 35px;
+  }
+}
+@media (min-width: 480px) and (max-width: 639px) {
+  .user-info {
+    align-items: center;
+    flex-direction: column;
+    padding: 20px 0 0 0;
+    gap: 35px;
+  }
+}
+@media (min-width: 640px) and (max-width: 999px) {
+  .user-info {
+    align-items: center;
+    flex-direction: column;
+    padding: 50px 0 0 0px;
+    gap: 35px;
+  }
+}
+@media (min-width: 1000px) and (max-width: 1365px) {
+  .user-info {
+    align-items: center;
+    flex-direction: row;
+    padding: 50px 0 0 20px;
+    gap: 80px;
+  }
+}
+/*!**********************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/components/Search/Search.scss ***!
+  \**********************************************************************************************************************************************************************/
+.base {
+  display: flex;
+  flex-direction: row;
+  gap: 22.02px;
+  padding: 16px 0 16px 41px;
+}
+.base .logo {
+  width: 41.02px;
+  height: 40px;
+  background-image: url(assets/74bc677f08cb612dc80a.png);
+  transform: scale(1);
+  transition: 0.5s;
+}
+.base .logo:hover {
+  cursor: pointer;
+  transform: scale(0.9);
+  transition: 0.5s;
+}
+.base .search {
+  display: flex;
+  flex-direction: row;
+  gap: 11px;
+  align-items: center;
+  padding: 8px 0 8px 19px;
+  width: 500px;
+  height: 40px;
+  background: #FFFFFF;
+  border-radius: 6px;
+}
+.base .search .search-icon {
+  width: 14px;
+  height: 14px;
+  background-image: url(assets/75f285df905885e9a8aa.png);
+}
+.base .search input {
+  border: none;
+  width: 256px;
+  color: #808080;
+}
+.base .search input:focus {
+  outline: none;
+}
+
+@media (min-width: 320px) and (max-width: 479px) {
+  .base {
+    padding: 16px 22px 16px 22px;
+  }
+  .base .search {
+    width: 200px;
+  }
+  .base .search input {
+    width: 150px;
+  }
+}
+@media (min-width: 480px) and (max-width: 639px) {
+  .base {
+    justify-content: center;
+    padding: 16px 22px 16px 22px;
+  }
+  .base .search {
+    width: 300px;
+  }
+  .base .search input {
+    width: 250px;
+  }
+}
+@media (min-width: 640px) and (max-width: 999px) {
+  .base {
+    justify-content: center;
+    padding: 16px 22px 16px 22px;
+  }
+  .base .search {
+    width: 300px;
+  }
+  .base .search input {
+    width: 250px;
+  }
+}
+@media (min-width: 1000px) and (max-width: 1365px) {
+  .base {
+    justify-content: center;
+    padding: 16px 22px 16px 22px;
+  }
+  .base .search {
+    width: 450px;
+  }
+  .base .search input {
+    width: 350px;
+  }
+}
+/*!********************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/components/StartSearch/StartSearch.scss ***!
+  \********************************************************************************************************************************************************************************/
+.start-search {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 46.92px;
+  width: 210px;
+  margin: 245px auto 0 auto;
+}
+.start-search .icon {
+  width: 64.17px;
+  height: 64.17px;
+  background: url(assets/910956fda58670b86ddd.png) no-repeat;
+}
+.start-search p {
+  font-size: 22px;
+  text-align: center;
+  line-height: 140%;
+}
+
+@media (min-width: 320px) and (max-width: 479px) {
+  .start-search {
+    margin: 25vh auto;
+    align-items: center;
+  }
+}
+@media (min-width: 480px) and (max-width: 639px) {
+  .start-search {
+    margin: 25vh auto;
+    align-items: center;
+  }
+}
+@media (min-width: 640px) and (max-width: 999px) {
+  .start-search {
+    margin: 25vh auto;
+    align-items: center;
+  }
+}
+@media (min-width: 1000px) and (max-width: 1365px) {
+  .start-search {
+    margin: 25vh auto;
+    align-items: center;
+  }
+}
+/*!****************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/components/App/App.scss ***!
+  \****************************************************************************************************************************************************************/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  color: #808080;
+  margin: 0;
+  background-color: #E5E5E5;
+}
+body header {
+  width: 100%;
+  background-color: #0064EB;
+}
+
+/*# sourceMappingURL=main.ce9af83a3697a92efca1.css.map*/
