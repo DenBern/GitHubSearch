@@ -66,17 +66,17 @@
   font-size: 16px;
   color: #000;
 }
+.description .followers-following .followers .followers-icon- {
+  display: flex;
+  width: 22.08px;
+  height: 14px;
+  background-image: url(assets/5dd2370ff97ddb6b185f.png);
+}
 .description .followers-following .following {
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 8px;
-}
-.description .followers-following .following .followers-icon {
-  display: flex;
-  width: 16.06px;
-  height: 16px;
-  background-image: url(assets/5dd2370ff97ddb6b185f.png);
 }
 .description .followers-following .following .following-icon {
   display: flex;
@@ -273,8 +273,7 @@ h2 {
   gap: 24px;
 }
 .repositories .pages .number-page {
-  width: 111px;
-  height: 21px;
+  width: 170px;
   font-family: "Inter";
   font-style: normal;
   font-weight: 400;
@@ -652,4 +651,4 @@ body header {
   background-color: #0064EB;
 }
 
-/*# sourceMappingURL=main.ce9af83a3697a92efca1.css.map*/
+/*# sourceMappingURL=main.58457c5f779d634f5fc6.css.map*/

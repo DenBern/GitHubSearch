@@ -229,7 +229,7 @@ var Description = function Description(_ref) {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "followers"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    className: "followers-icon"
+    className: "followers-icon-"
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, "".concat(followers > 1000 ? (followers / 1000).toFixed(1) + 'k' : followers, " followers"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "following"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -291,7 +291,7 @@ var Repositories = function Repositories(_ref) {
   var lastPage = page * reposOnThePage;
   var pages = Math.ceil(countRepos / reposOnThePage);
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    setPage(1);
+    page === 1 ? getUserRepositories(userName, page, reposOnThePage) : setPage(1);
   }, [userName]);
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     getUserRepositories(userName, page, reposOnThePage);
