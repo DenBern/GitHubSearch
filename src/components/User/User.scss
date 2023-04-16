@@ -8,12 +8,38 @@
 
 //Adaptive
 
-@media(max-width: 320px) {
+@media(min-width: 320px) and (max-width: 479px) {
   .user-info {
-    display: flex;
+    align-items: center;
     flex-direction: column;
     padding: 20px 0 0 0;
     gap: 35px;
-    
+  }
+}
+
+@media(min-width: 480px) and (max-width: 639px) {
+  .user-info {
+    align-items: center;
+    flex-direction: column;
+    padding: 20px 0 0 0;
+    gap: 35px;
+  }
+}
+
+@media(min-width: 640px) and (max-width: 999px) {
+  .user-info {
+    align-items: center;
+    flex-direction: column;
+    padding: 50px 0 0 0px;
+    gap: 35px;
+  }
+}
+
+@media(min-width: 1000px) and (max-width: 1365px) {
+  .user-info {
+    align-items: center;
+    flex-direction: row;
+    padding: 50px 0 0 20px;
+    gap: 80px;
   }
 }

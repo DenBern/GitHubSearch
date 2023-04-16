@@ -11,7 +11,6 @@ import './Repositories.scss';
 export const  Repositories = ({userName, countRepos}) => {
   const {reposError, reposLoading, getUserRepositories, repos} =  useGitHubUserInfo();
 
-  const [name, setName] = useState('')
   const [page, setPage] = useState(1);
 
   const reposOnThePage = 4;
@@ -27,7 +26,6 @@ export const  Repositories = ({userName, countRepos}) => {
     getUserRepositories(userName, page, reposOnThePage);
   }, [page])
 
-  console.log(page)
     return (
       <div className="repositories">
           {reposError && 'Error loading repos...'}
@@ -52,11 +50,12 @@ export const  Repositories = ({userName, countRepos}) => {
                     breakLabel="..."
                     nextLabel=" >"
                     previousLabel="< "
-                    pageRangeDisplayed={reposOnThePage}
                     pageCount={pages}
                     renderOnZeroPageCount={null}
                     onPageChange={(e) => setPage(e.selected + 1)}
                     forcePage={page - 1}
+                    pageRangeDisplayed={2}
+                    marginPagesDisplayed={1}
                   />
                 </div>
               </> 

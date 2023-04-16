@@ -38,7 +38,46 @@
 
 //Adaptive
 
-@media (max-width: 320px) {
+@media(min-width: 320px) and (max-width: 479px) {
+  .repos-not-found {
+    gap: 15px;
+    padding-top: 75px;
+    margin: 0 auto;
+  }
+
+  .user-not-found {
+    margin: 0 auto;
+    padding-top: 200px;
+  }
+}
+
+@media(min-width: 480px) and (max-width: 639px) {
+  .repos-not-found {
+    gap: 15px;
+    padding-top: 75px;
+    margin: 0 auto;
+  }
+
+  .user-not-found {
+    margin: 0 auto;
+    padding-top: 200px;
+  }
+}
+
+@media(min-width: 640px) and (max-width: 999px) {
+  .repos-not-found {
+    gap: 15px;
+    padding-top: 75px;
+    margin: 0 auto;
+  }
+
+  .user-not-found {
+    margin: 0 auto;
+    padding-top: 200px;
+  }
+}
+
+@media(min-width: 1000px) and (max-width: 1365px) {
   .repos-not-found {
     gap: 15px;
     padding-top: 75px;

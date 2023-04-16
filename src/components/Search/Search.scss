@@ -50,7 +50,7 @@
 
 //Adaptive
 
-@media (max-width: 320px) {
+@media(min-width: 320px) and (max-width: 479px) {
   .base {
     padding: 16px 22px 16px 22px;
     .search {
@@ -58,6 +58,48 @@
 
       input {
         width: 150px;
+      }
+    }
+  }
+}
+
+@media(min-width: 480px) and (max-width: 639px) {
+  .base {
+    justify-content: center;
+    padding: 16px 22px 16px 22px;
+    .search {
+      width: 300px;
+
+      input {
+        width: 250px;
+      }
+    }
+  }
+}
+
+@media(min-width: 640px) and (max-width: 999px) {
+  .base {
+    justify-content: center;
+    padding: 16px 22px 16px 22px;
+    .search {
+      width: 300px;
+
+      input {
+        width: 250px;
+      }
+    }
+  }
+}
+
+@media(min-width: 1000px) and (max-width: 1365px) {
+  .base {
+    justify-content: center;
+    padding: 16px 22px 16px 22px;
+    .search {
+      width: 450px;
+
+      input {
+        width: 350px;
       }
     }
   }

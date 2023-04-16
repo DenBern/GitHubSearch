@@ -94,7 +94,7 @@ h2 {
 
 //Adaptive
 
-@media(max-width: 320px) {
+@media(min-width: 320px) and (max-width: 479px) {
   .repositories {
     width: 320px;
     gap: 15px;
@@ -117,6 +117,127 @@ h2 {
     .pages {
       flex-direction: column-reverse;
       align-items: center;
+      gap: 15px;
+
+      .number-page {
+        width: 50%;
+        text-align: center;
+      }
+
+      .pagination {
+        gap: 5px;
+      }
+    }
+  }
+}
+
+@media(min-width: 480px) and (max-width: 639px) {
+  .repositories {
+    width: 450px;
+    gap: 15px;
+    padding: 0 10px 0 10px;
+
+    h2 {
+      text-align: center;
+      font-size: 18px;
+    }
+
+    .repositories-list {
+      gap: 10px;
+
+      .repository {
+        gap: 5px;
+        padding: 5px 10px 5px 10px;
+      }
+    }
+
+    .pages {
+      flex-direction: column-reverse;
+      align-items: center;
+      gap: 15px;
+
+      .number-page {
+        width: 50%;
+        text-align: center;
+      }
+
+      .pagination {
+        gap: 5px;
+      }
+    }
+  }
+}
+
+@media(min-width: 640px) and (max-width: 999px) {
+  .repositories {
+    width: 80%;
+    gap: 15px;
+    padding: 0 10px 0 10px;
+
+    h2 {
+      text-align: center;
+      font-size: 20px;
+    }
+
+    .repositories-list {
+      gap: 10px;
+
+      .repository {
+        gap: 5px;
+        padding: 5px 10px 5px 10px;
+      }
+    }
+
+    .pages {
+      flex-direction: column-reverse;
+      align-items: center;
+      gap: 15px;
+
+      .number-page {
+        width: 50%;
+        text-align: center;
+      }
+
+      .pagination {
+        gap: 5px;
+      }
+    }
+  }
+}
+
+@media(min-width: 1000px) and (max-width: 1365px) {
+  .repositories {
+    width: 70%;
+    gap: 15px;
+    padding: 0 10px 0 10px;
+
+    h2 {
+      text-align: center;
+      font-size: 24px;
+    }
+
+    .repositories-list {
+      gap: 10px;
+
+      .repository {
+        gap: 5px;
+        padding: 20px 10px 15px 10px;
+      }
+    }
+
+    .pages {
+      flex-direction: column-reverse;
+      align-items: center;
+      gap: 15px;
+
+      .number-page {
+        width: 50%;
+        text-align: center;
+      }
+
+      .pagination {
+        gap: 5px;
+      }
     }
   }
 }
