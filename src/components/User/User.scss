@@ -5,3 +5,15 @@
 
   padding: 39px 56px 77px 57px;
 }
+
+//Adaptive
+
+@media(max-width: 320px) {
+  .user-info {
+    display: flex;
+    flex-direction: column;
+    padding: 20px 0 0 0;
+
+    
+  }
+}

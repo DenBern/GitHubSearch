@@ -18,7 +18,6 @@ export const App = () => {
       </header>
       <main>
         {!userName ? <StartSearch/> : <User userName={userName}/>}
-        {/* {descError && <NotFound prop={constants.userNotFound}/>} */}
       </main>
     </>
   )

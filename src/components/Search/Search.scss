@@ -47,3 +47,18 @@
         }
     }
 }
+
+//Adaptive
+
+@media (max-width: 320px) {
+  .base {
+    padding: 16px 22px 16px 22px;
+    .search {
+      width: 200px;
+
+      input {
+        width: 150px;
+      }
+    }
+  }
+}
