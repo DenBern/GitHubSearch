@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect, useCallback} from "react";
 import ReactPaginate from 'react-paginate';
 import { NotFound } from "../../NotFound/NotFound.jsx";
 import { Repository } from "./Repository/Repository.jsx";
@@ -19,8 +19,8 @@ export const  Repositories = ({userName, countRepos}) => {
   const pages = Math.ceil(countRepos / reposOnThePage);
 
   useEffect(() => {
-    setPage(1)
-  }, [userName]);
+    page === 1 ? getUserRepositories(userName, page, reposOnThePage) : setPage(1);
+  }, [userName])  
 
   useEffect(() => {
     getUserRepositories(userName, page, reposOnThePage);
