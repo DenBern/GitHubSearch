@@ -3,12 +3,13 @@ import React, { useState } from 'react';
 import './Search.scss';
 
 export const Search = (props) => {
-  const {updateUser} = props;
+  const {updateUser, updatePage} = props;
   const [search, setSearch] = useState('');
 
   const handleKeyDownPress = (e) => {
     if (e.key === 'Enter') {
-      updateUser(search)
+      updatePage(1);
+      updateUser(search);
     }
   }
   

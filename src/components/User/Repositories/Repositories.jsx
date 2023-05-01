@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useCallback} from "react";
+import React, {useEffect} from "react";
 import ReactPaginate from 'react-paginate';
 import { NotFound } from "../../NotFound/NotFound.jsx";
 import { Repository } from "./Repository/Repository.jsx";
@@ -8,10 +8,9 @@ import { Spinner } from "../../Spinner/Spinner.jsx";
 
 import './Repositories.scss';
 
-export const  Repositories = ({userName, countRepos}) => {
+export const  Repositories = ({userName, countRepos, page, setPage}) => {
   const {reposError, reposLoading, getUserRepositories, repos} =  useGitHubUserInfo();
 
-  const [page, setPage] = useState(1);
 
   const reposOnThePage = 4;
   const firstPage = page * reposOnThePage - reposOnThePage + 1;
@@ -19,12 +18,8 @@ export const  Repositories = ({userName, countRepos}) => {
   const pages = Math.ceil(countRepos / reposOnThePage);
 
   useEffect(() => {
-    page === 1 ? getUserRepositories(userName, page, reposOnThePage) : setPage(1);
-  }, [userName])  
-
-  useEffect(() => {
     getUserRepositories(userName, page, reposOnThePage);
-  }, [page])
+  }, [userName, page])  
 
     return (
       <div className="repositories">

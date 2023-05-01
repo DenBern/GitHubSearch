@@ -1,23 +1,21 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { User } from "../User/User.jsx";
 import { Search } from '../Search/Search.jsx';
-import { NotFound } from "../NotFound/NotFound.jsx";
 import { StartSearch } from "../StartSearch/StartSearch.jsx";
-
-import { constants } from "../constants/constants.js";
 
 import './App.scss';
 
 export const App = () => {
   const [userName, setUserName] = useState('');
+  const [page, setPage] = useState(1);
 
   return (
     <>
       <header>
-        <Search updateUser={(search) => setUserName(search)}/>
+        <Search updateUser={(search) => setUserName(search)} updatePage={setPage}/>
       </header>
       <main>
-        {!userName ? <StartSearch/> : <User userName={userName}/>}
+        {!userName ? <StartSearch/> : <User userName={userName} page={page} setPage={setPage}/>}
       </main>
     </>
   )
