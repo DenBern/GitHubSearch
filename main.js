@@ -15,10 +15,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var _User_User_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../User/User.jsx */ "./src/components/User/User.jsx");
 /* harmony import */ var _Search_Search_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Search/Search.jsx */ "./src/components/Search/Search.jsx");
-/* harmony import */ var _NotFound_NotFound_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../NotFound/NotFound.jsx */ "./src/components/NotFound/NotFound.jsx");
-/* harmony import */ var _StartSearch_StartSearch_jsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../StartSearch/StartSearch.jsx */ "./src/components/StartSearch/StartSearch.jsx");
-/* harmony import */ var _constants_constants_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../constants/constants.js */ "./src/components/constants/constants.js");
-/* harmony import */ var _App_scss__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./App.scss */ "./src/components/App/App.scss");
+/* harmony import */ var _StartSearch_StartSearch_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../StartSearch/StartSearch.jsx */ "./src/components/StartSearch/StartSearch.jsx");
+/* harmony import */ var _App_scss__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./App.scss */ "./src/components/App/App.scss");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
@@ -30,19 +28,24 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
-
-
 var App = function App() {
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
     _useState2 = _slicedToArray(_useState, 2),
     userName = _useState2[0],
     setUserName = _useState2[1];
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(1),
+    _useState4 = _slicedToArray(_useState3, 2),
+    page = _useState4[0],
+    setPage = _useState4[1];
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("header", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Search_Search_jsx__WEBPACK_IMPORTED_MODULE_2__.Search, {
     updateUser: function updateUser(search) {
       return setUserName(search);
-    }
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("main", null, !userName ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_StartSearch_StartSearch_jsx__WEBPACK_IMPORTED_MODULE_4__.StartSearch, null) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_User_User_jsx__WEBPACK_IMPORTED_MODULE_1__.User, {
-    userName: userName
+    },
+    updatePage: setPage
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("main", null, !userName ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_StartSearch_StartSearch_jsx__WEBPACK_IMPORTED_MODULE_3__.StartSearch, null) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_User_User_jsx__WEBPACK_IMPORTED_MODULE_1__.User, {
+    userName: userName,
+    page: page,
+    setPage: setPage
   })));
 };
 
@@ -98,13 +101,15 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 var Search = function Search(props) {
-  var updateUser = props.updateUser;
+  var updateUser = props.updateUser,
+    updatePage = props.updatePage;
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
     _useState2 = _slicedToArray(_useState, 2),
     search = _useState2[0],
     setSearch = _useState2[1];
   var handleKeyDownPress = function handleKeyDownPress(e) {
     if (e.key === 'Enter') {
+      updatePage(1);
       updateUser(search);
     }
   };
@@ -260,12 +265,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Spinner_Spinner_jsx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../Spinner/Spinner.jsx */ "./src/components/Spinner/Spinner.jsx");
 /* harmony import */ var _Repositories_scss__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./Repositories.scss */ "./src/components/User/Repositories/Repositories.scss");
 function _extends() { _extends = Object.assign ? Object.assign.bind() : function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
-function _iterableToArrayLimit(arr, i) { var _i = null == arr ? null : "undefined" != typeof Symbol && arr[Symbol.iterator] || arr["@@iterator"]; if (null != _i) { var _s, _e, _x, _r, _arr = [], _n = !0, _d = !1; try { if (_x = (_i = _i.call(arr)).next, 0 === i) { if (Object(_i) !== _i) return; _n = !1; } else for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0); } catch (err) { _d = !0, _e = err; } finally { try { if (!_n && null != _i["return"] && (_r = _i["return"](), Object(_r) !== _r)) return; } finally { if (_d) throw _e; } } return _arr; } }
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
@@ -276,26 +275,21 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 var Repositories = function Repositories(_ref) {
   var userName = _ref.userName,
-    countRepos = _ref.countRepos;
+    countRepos = _ref.countRepos,
+    page = _ref.page,
+    setPage = _ref.setPage;
   var _useGitHubUserInfo = (0,_services_GitHubUserInfo_GitHubUserInfo_js__WEBPACK_IMPORTED_MODULE_5__.useGitHubUserInfo)(),
     reposError = _useGitHubUserInfo.reposError,
     reposLoading = _useGitHubUserInfo.reposLoading,
     getUserRepositories = _useGitHubUserInfo.getUserRepositories,
     repos = _useGitHubUserInfo.repos;
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(1),
-    _useState2 = _slicedToArray(_useState, 2),
-    page = _useState2[0],
-    setPage = _useState2[1];
   var reposOnThePage = 4;
   var firstPage = page * reposOnThePage - reposOnThePage + 1;
   var lastPage = page * reposOnThePage;
   var pages = Math.ceil(countRepos / reposOnThePage);
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    page === 1 ? getUserRepositories(userName, page, reposOnThePage) : setPage(1);
-  }, [userName]);
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     getUserRepositories(userName, page, reposOnThePage);
-  }, [page]);
+  }, [userName, page]);
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "repositories"
   }, reposError && 'Error loading repos...', countRepos ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", null, "Repositories (", countRepos, ")"), reposLoading ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Spinner_Spinner_jsx__WEBPACK_IMPORTED_MODULE_6__.Spinner, null) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -372,8 +366,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Repositories_Repositories_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Repositories/Repositories.jsx */ "./src/components/User/Repositories/Repositories.jsx");
 /* harmony import */ var _NotFound_NotFound_jsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../NotFound/NotFound.jsx */ "./src/components/NotFound/NotFound.jsx");
 /* harmony import */ var _constants_constants_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../constants/constants.js */ "./src/components/constants/constants.js");
-/* harmony import */ var _Spinner_Spinner_jsx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../Spinner/Spinner.jsx */ "./src/components/Spinner/Spinner.jsx");
-/* harmony import */ var _User_scss__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./User.scss */ "./src/components/User/User.scss");
+/* harmony import */ var _User_scss__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./User.scss */ "./src/components/User/User.scss");
 function _extends() { _extends = Object.assign ? Object.assign.bind() : function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
 
@@ -382,9 +375,10 @@ function _extends() { _extends = Object.assign ? Object.assign.bind() : function
 
 
 
-
 var User = function User(_ref) {
-  var userName = _ref.userName;
+  var userName = _ref.userName,
+    page = _ref.page,
+    setPage = _ref.setPage;
   var _useGitHubUserInfo = (0,_services_GitHubUserInfo_GitHubUserInfo_js__WEBPACK_IMPORTED_MODULE_1__.useGitHubUserInfo)(),
     descError = _useGitHubUserInfo.descError,
     descLoading = _useGitHubUserInfo.descLoading,
@@ -401,7 +395,9 @@ var User = function User(_ref) {
     descLoading: descLoading
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Repositories_Repositories_jsx__WEBPACK_IMPORTED_MODULE_3__.Repositories, {
     countRepos: countRepos,
-    userName: userName
+    userName: userName,
+    page: page,
+    setPage: setPage
   })) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_NotFound_NotFound_jsx__WEBPACK_IMPORTED_MODULE_4__.NotFound, {
     prop: _constants_constants_js__WEBPACK_IMPORTED_MODULE_5__.constants.userNotFound
   }));
